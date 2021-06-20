@@ -6,20 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://misakiga.github.io">
-  <title>microservice/Distributed_Scheduler | MSGA-BLOG</title>
+  <title>调度框架 | MSGA-BLOG</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="title: 调度框架date: 2021-06-21 05:26:00tags:   随笔 分布式调度框架 Quartz cron XXL-JOB   Quartz最近有需求需要研究下任务调度框架，看了才发现原来之前有用过，只不过就搭了下 demo 。Quartz 是一个任务调度框架。可以用来运行定时任务，例如定时发邮件，定时爬数据（采集交易所记录进行分析，提醒你快爆仓啦），定时自定义任务(运">
+  <meta name="description" content="Quartz最近有需求需要研究下任务调度框架，看了才发现原来之前有用过，只不过就搭了下 demo 。Quartz 是一个任务调度框架。可以用来运行定时任务，例如定时发邮件，定时爬数据（采集交易所记录进行分析，提醒你快爆仓啦），定时自定义任务(运行程序)等。给予一个触发条件，到点即触发相应的 job。类似 linux 下的 crontab 定时任务">
 <meta property="og:type" content="article">
-<meta property="og:title" content="microservice&#x2F;Distributed_Scheduler">
-<meta property="og:url" content="https://misakiga.github.io/2021/06/20/microservice/Distributed_Scheduler/index.html">
+<meta property="og:title" content="调度框架">
+<meta property="og:url" content="https://misakiga.github.io/2021/06/21/microservice/Distributed_Scheduler/index.html">
 <meta property="og:site_name" content="MSGA-BLOG">
-<meta property="og:description" content="title: 调度框架date: 2021-06-21 05:26:00tags:   随笔 分布式调度框架 Quartz cron XXL-JOB   Quartz最近有需求需要研究下任务调度框架，看了才发现原来之前有用过，只不过就搭了下 demo 。Quartz 是一个任务调度框架。可以用来运行定时任务，例如定时发邮件，定时爬数据（采集交易所记录进行分析，提醒你快爆仓啦），定时自定义任务(运">
+<meta property="og:description" content="Quartz最近有需求需要研究下任务调度框架，看了才发现原来之前有用过，只不过就搭了下 demo 。Quartz 是一个任务调度框架。可以用来运行定时任务，例如定时发邮件，定时爬数据（采集交易所记录进行分析，提醒你快爆仓啦），定时自定义任务(运行程序)等。给予一个触发条件，到点即触发相应的 job。类似 linux 下的 crontab 定时任务">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-06-20T07:48:53.794Z">
-<meta property="article:modified_time" content="2021-06-20T20:30:25.104Z">
+<meta property="article:published_time" content="2021-06-20T21:26:00.000Z">
+<meta property="article:modified_time" content="2021-06-20T20:35:20.607Z">
 <meta property="article:author" content="MISAKIGA">
+<meta property="article:tag" content="随笔">
+<meta property="article:tag" content="分布式调度框架">
+<meta property="article:tag" content="Quartz">
+<meta property="article:tag" content="cron">
+<meta property="article:tag" content="XXL-JOB">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="MSGA-BLOG" type="application/atom+xml">
@@ -210,7 +215,7 @@
   
   
     <h1 class="article-title" itemprop="name">
-      microservice/Distributed_Scheduler
+      调度框架
     </h1>
   
 
@@ -222,8 +227,8 @@
               <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
         </span>
 
-<a href="/2021/06/20/microservice/Distributed_Scheduler/" class="archive-article-date">
-        <time datetime="2021-06-20T07:48:53.794Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-20</time>
+<a href="/2021/06/21/microservice/Distributed_Scheduler/" class="archive-article-date">
+        <time datetime="2021-06-20T21:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-21</time>
 </a>
 
   
@@ -245,7 +250,7 @@
     <span class="post-meta-item-icon">
       <i class="icon-book icon"></i>
       <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">6分</span>
+      <span class="post-count">5分</span>
     </span>
   </span>
 </div>
@@ -256,17 +261,9 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <hr>
-<p>title: 调度框架<br>date: 2021-06-21 05:26:00<br>tags: </p>
-<ul>
-<li>随笔</li>
-<li>分布式调度框架</li>
-<li>Quartz</li>
-<li>cron</li>
-<li>XXL-JOB</li>
-</ul>
-<hr>
-<h2 id="Quartz"><a href="#Quartz" class="headerlink" title="Quartz"></a>Quartz</h2><p>最近有需求需要研究下任务调度框架，看了才发现原来之前有用过，只不过就搭了下 demo 。Quartz 是一个任务调度框架。可以用来运行定时任务，例如定时发邮件，定时爬数据（采集交易所记录进行分析，提醒你快爆仓啦），定时自定义任务(运行程序)等。给予一个触发条件，到点即触发相应的 job。类似 linux 下的 crontab 定时任务</p>
+    <h2 id="Quartz"><a href="#Quartz" class="headerlink" title="Quartz"></a>Quartz</h2><p>最近有需求需要研究下任务调度框架，看了才发现原来之前有用过，只不过就搭了下 demo 。Quartz 是一个任务调度框架。可以用来运行定时任务，例如定时发邮件，定时爬数据（采集交易所记录进行分析，提醒你快爆仓啦），定时自定义任务(运行程序)等。给予一个触发条件，到点即触发相应的 job。类似 linux 下的 crontab 定时任务</p>
+<a id="more"></a>
+
 <h3 id="cron-表达式"><a href="#cron-表达式" class="headerlink" title="cron 表达式"></a>cron 表达式</h3><p> cron 表达式是 Linux 系统用来设计计划任务的，比如：每天晚上 12 点重启指定应用，到定时运行指定的脚本。</p>
 <h4 id="cron-格式："><a href="#cron-格式：" class="headerlink" title="cron 格式："></a>cron 格式：</h4><p>cron表现为一个字符串，字符串包含 6-7 个字段，字段间空格相隔，这个字段允许填入的任何值或特殊字符。</p>
 <table>
@@ -414,7 +411,7 @@
         </li>
         <li>
           <strong>本文链接：</strong>
-          <a href="https:/misakiga.github.io/2021/06/20/microservice/Distributed_Scheduler/" title="microservice/Distributed_Scheduler" target="_blank">https:/misakiga.github.io/2021/06/20/microservice/Distributed_Scheduler/</a>
+          <a href="https:/misakiga.github.io/2021/06/21/microservice/Distributed_Scheduler/" title="调度框架" target="_blank">https:/misakiga.github.io/2021/06/21/microservice/Distributed_Scheduler/</a>
         </li>
         
         <li>
@@ -431,6 +428,33 @@
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分布式调度框架</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Quartz</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">cron</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">XXL-JOB</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
 
     
@@ -481,7 +505,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://misakiga.github.io/2021/06/20/microservice/Distributed_Scheduler/" alt="微信分享二维码"> -->
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://misakiga.github.io/2021/06/21/microservice/Distributed_Scheduler/" alt="微信分享二维码"> -->
     </div>
 </div>
 
@@ -495,15 +519,6 @@
 
 
 <nav id="article-nav">
-  
-    <a href="/2021/06/21/db/mysql%20%E6%9C%8D%E5%8A%A1%E5%90%AF%E5%81%9C/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          db/mysql 服务启停
-        
-      </div>
-    </a>
   
   
     <a href="/2021/06/19/notes/settingcomputer/" id="article-nav-older" class="article-nav-link-wrap">
@@ -914,6 +929,22 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ROS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分布式调度框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Quartz</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">cron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">XXL-JOB</a>
               </li>
             
             <div class="clearfix"></div>

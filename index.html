@@ -208,99 +208,6 @@
             
 
   
-    <article id="post-db/mysql 服务启停" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/06/21/db/mysql%20%E6%9C%8D%E5%8A%A1%E5%90%AF%E5%81%9C/" target="_blank">db/mysql 服务启停</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/06/21/db/mysql%20%E6%9C%8D%E5%8A%A1%E5%90%AF%E5%81%9C/" class="archive-article-date">
-        <time datetime="2021-06-20T20:33:03.192Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-21</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <hr>
-<p>title: 离线版 MySQL 安装<br>date: 2018-11-13 13:26:00<br>tags: </p>
-<ul>
-<li>随笔</li>
-<li>MySQL</li>
-</ul>
-<hr>
-<h2 id="mysql-服务"><a href="#mysql-服务" class="headerlink" title="mysql 服务"></a>mysql 服务</h2><h3 id="需要管理员命令行才能执行成功"><a href="#需要管理员命令行才能执行成功" class="headerlink" title="需要管理员命令行才能执行成功"></a>需要管理员命令行才能执行成功</h3><ul>
-<li>安装服务<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld --install</span><br></pre></td></tr></table></figure></li>
-<li>卸载服务<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqld --remove</span><br></pre></td></tr></table></figure></li>
-<li>启动服务<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net start mysql</span><br></pre></td></tr></table></figure></li>
-<li>停止服务<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net stop mysql</span><br></pre></td></tr></table></figure></li>
-<li>初始化 mysql<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除 data 目录</span></span><br><span class="line">mysqld --initialize-insecure --user=mysql</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p>进入 mysql </p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p	<span class="comment"># 输入命令，然后回车，即可登陆</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 8.0 以上版本改密</span></span><br><span class="line">USE mysql;</span><br><span class="line"><span class="comment"># 修改密码</span></span><br><span class="line">ALTER USER <span class="string">'root'</span>@<span class="string">'localhost'</span> IDENTIFIED WITH </span><br><span class="line">mysql_native_password BY <span class="string">'msga123456'</span>;</span><br><span class="line"><span class="comment"># 修改为允许所有人访问，原来localhost只能本地访问</span></span><br><span class="line">update user <span class="built_in">set</span> host=<span class="string">'%'</span> <span class="built_in">where</span> user=<span class="string">'root'</span>;</span><br><span class="line">FLUSH privileges;  <span class="comment"># 刷新保存</span></span><br><span class="line"><span class="comment"># 给予所有授权</span></span><br><span class="line">GRANT ALL ON *.* TO <span class="string">'root'</span>@<span class="string">'%'</span>;</span><br><span class="line">FLUSH privileges;  <span class="comment"># 刷新保存</span></span><br></pre></td></tr></table></figure>
-
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/06/21/db/mysql%20%E6%9C%8D%E5%8A%A1%E5%90%AF%E5%81%9C/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-microservice/Distributed_Scheduler" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -309,7 +216,7 @@
   
     <h1 itemprop="name">
 	
-	  <a class="article-title" href="/2021/06/20/microservice/Distributed_Scheduler/" target="_blank">microservice/Distributed_Scheduler</a>
+	  <a class="article-title" href="/2021/06/21/microservice/Distributed_Scheduler/" target="_blank">调度框架</a>
   
     </h1>
   
@@ -317,8 +224,8 @@
 
   
   
-<a href="/2021/06/20/microservice/Distributed_Scheduler/" class="archive-article-date">
-        <time datetime="2021-06-20T07:48:53.794Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-20</time>
+<a href="/2021/06/21/microservice/Distributed_Scheduler/" class="archive-article-date">
+        <time datetime="2021-06-20T21:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-21</time>
 </a>
 
   
@@ -330,151 +237,10 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <hr>
-<p>title: 调度框架<br>date: 2021-06-21 05:26:00<br>tags: </p>
-<ul>
-<li>随笔</li>
-<li>分布式调度框架</li>
-<li>Quartz</li>
-<li>cron</li>
-<li>XXL-JOB</li>
-</ul>
-<hr>
-<h2 id="Quartz"><a href="#Quartz" class="headerlink" title="Quartz"></a>Quartz</h2><p>最近有需求需要研究下任务调度框架，看了才发现原来之前有用过，只不过就搭了下 demo 。Quartz 是一个任务调度框架。可以用来运行定时任务，例如定时发邮件，定时爬数据（采集交易所记录进行分析，提醒你快爆仓啦），定时自定义任务(运行程序)等。给予一个触发条件，到点即触发相应的 job。类似 linux 下的 crontab 定时任务</p>
-<h3 id="cron-表达式"><a href="#cron-表达式" class="headerlink" title="cron 表达式"></a>cron 表达式</h3><p> cron 表达式是 Linux 系统用来设计计划任务的，比如：每天晚上 12 点重启指定应用，到定时运行指定的脚本。</p>
-<h4 id="cron-格式："><a href="#cron-格式：" class="headerlink" title="cron 格式："></a>cron 格式：</h4><p>cron表现为一个字符串，字符串包含 6-7 个字段，字段间空格相隔，这个字段允许填入的任何值或特殊字符。</p>
-<table>
-<thead>
-<tr>
-<th>字段</th>
-<th>允许值</th>
-<th>允许的特殊字符</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>秒</td>
-<td>0-59</td>
-<td>， - * /</td>
-</tr>
-<tr>
-<td>分</td>
-<td>0-59</td>
-<td>， - * /</td>
-</tr>
-<tr>
-<td>小时</td>
-<td>0-23</td>
-<td>， - * /</td>
-</tr>
-<tr>
-<td>日期</td>
-<td>1-31</td>
-<td>， - * / L W C</td>
-</tr>
-<tr>
-<td>月份</td>
-<td>1-12 or JAN-DEC</td>
-<td>， - * /</td>
-</tr>
-<tr>
-<td>星期</td>
-<td>1-7 or SUN-SAT</td>
-<td>， - * / L C #</td>
-</tr>
-<tr>
-<td>年</td>
-<td>留空，1970-2099</td>
-<td>， - * /</td>
-</tr>
-</tbody></table>
-<p>特殊字符所表示的含义：</p>
-<ul>
-<li><p><kbd>*</kbd> 指定所有值。如：在分钟字段表示 “每分钟”</p>
-</li>
-<li><p><kbd>-</kbd> 指定一个范围。如 10-12 在小时字段表示 “10点、11点、12点”</p>
-</li>
-<li><p><kbd>,</kbd> 指定另外的值。如：MON,WED,FRI 在星期字段表示 “周一、周三、周五”</p>
-</li>
-<li><p><kbd>?</kbd> 只在日期和星期字段中使用。指定 “非明确的值”。需要通过在这两个字段中指定一些东西的时候。</p>
-</li>
-<li><p><kbd>L</kbd> 指定在用或者星期中的某天（最后一天）。“Last” 的缩写，在星期中表示为 “7” 或者 “SAT”，在月中表示月份中最后一天 ”1月31日，2 月 28 日“。如果在星期字段某个 value 后面，则表示 ”某月的最后一个星期 value“，如 ”6L“ 表示某月的最后一个星期五。（注意： cron 中 1 表示周日，7 表示周六）</p>
-</li>
-<li><p><kbd>W</kbd> 只能用在月份字段中，指定了离指定日期最近的那个星期日</p>
-</li>
-<li><p><kbd>#</kbd> 只能用在星期字段，指定了第 n 个星期 value 在某月中</p>
-</li>
-</ul>
-<p>通常 cron 可以用在线工具生成。<a href="https://cron.qqe2.com/" target="_blank" rel="noopener">在线Cron表达式生成器</a></p>
-<p>创建一个 Quartz demo</p>
-<p>选择 Spring生成器 -&gt; I/O -&gt; Quartz Scheduler</p>
-<p>可以看到 pom.xml 引用了</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-quartz<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- spring-boot-starter-parent spring-boot-starter-test --&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>在 Application 上启用 Scheduling 。注解 @EnableScheduling 。</p>
-<p>创建一个 job 类 PrintCurrentTimeTask.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注册为组件</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrintCurrentTimeTask</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 使用 @Scheduled 启用</span></span><br><span class="line">    <span class="comment">// cron 表示每 10 秒执行一次</span></span><br><span class="line">    <span class="meta">@Scheduled</span>(cron = <span class="string">"0/10 * * * * ? "</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printCurrentTime</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-mm-dd HH:mm:ss"</span>).format(<span class="keyword">new</span> Date()));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这样就完成了一个简单的 demo。</p>
-<p>定时任务的基本概念：</p>
-<ul>
-<li>任务</li>
-<li>执行器</li>
-<li>触发器</li>
-</ul>
-<p>分布式调度框架的架构基本概念：</p>
-<ul>
-<li>独立调度服务</li>
-<li>调度中心</li>
-<li>执行器</li>
-<li>动态配置</li>
-</ul>
-<p>实际应用中，可能需要分布式调度框架。这样的方式并不能满足需求</p>
-<ol>
-<li>无法集群部署，可能会出现任务重复执行。</li>
-<li>不支持统一生命周期管理，控制启动、关闭任务。</li>
-<li>不支持分片任务，  多机器分片执行处理不同数据</li>
-<li>不支持失败重试，出现异常后任务终止，不能根据状态控制任务重新执行。</li>
-<li>无报警机制，任务失败后没有报警机制。</li>
-<li>任务数据统计难以统计，数据量大时对任务执行情况无法高效统计执行情况。</li>
-<li>不支持动态调整，不重启服务的情况下修改任务参数。</li>
-</ol>
-<p>主流的分布式任务调度框架有 elasticjob 和 xxl-job，elasticjob 是面对高并发复杂业务而生，以来 Zookeeper 使用服务发现与注册(主节点选举，去中心化)，具有高可用、强一致性和较好的扩展性(伸缩立方，X轴 水平扩展)。xxk-job 是轻量级，开箱即用，操作简单，企业维护成本不高等等优势，有非常多企业选择 xxl-job。</p>
-<h2 id="XXL-JOB"><a href="#XXL-JOB" class="headerlink" title="XXL-JOB"></a>XXL-JOB</h2><ul>
-<li><p>到官网拉取 master 分支。</p>
-</li>
-<li><p>将 xxl-job -&gt; doc -&gt; *.sql 导入到数据库中</p>
-</li>
-<li><p>修改 xxl-job-admin -&gt; resources -&gt; application.propertis ：spring.datasource 的 username 和 password</p>
-</li>
-<li><p>启动 xxl-job-admin</p>
-</li>
-</ul>
-<p>打开任务调度中心： <a href="http://localhost:8080/xxl-job-admin/toLogin" target="_blank" rel="noopener">http://localhost:8080/xxl-job-admin/toLogin</a> (admin/123456)</p>
-<p>新建 一个 bean demo</p>
-<ol>
-<li><p>在 xxl-job-executor-sample-springboot 下的 com.xxl.job.executor.service.jobhandle 新建一个 DemoXxJob 类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoXxJob</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 声明一个 jobhandler</span></span><br><span class="line">    <span class="meta">@XxlJob</span>(value = <span class="string">"demoJobHandle"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ReturnT&lt;String&gt; <span class="title">execute</span><span class="params">(String param)</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">		<span class="comment">// 简单输出日志</span></span><br><span class="line">        XxlJobHelper.log(<span class="string">"XXL-JOB, HELLO WORLD."</span>);</span><br><span class="line">        System.out.println(<span class="string">"XXL-JOB, HELLO WORLD."</span>);</span><br><span class="line">        <span class="keyword">return</span> ReturnT.SUCCESS;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-<ol start="2">
-<li><p>进入任务调度中心添加一个任务管理项 CRON 为 ’ 0 1 * * * ? * ‘，允许模式为 0’ BEAN ‘，jobhandler为 ’ demoJobHandle ‘</p>
-</li>
-<li><p>修改 *-smple-springboot 下的 application.properties</p>
-<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">### admin 调度中心的通讯地址 多个地址则用逗号分隔 执行器将会使用该地址进行"执行器心跳注册"和"任务结果回调"；为空则关闭自动注册；</span></span><br><span class="line"><span class="meta">xxl.job.admin.addresses</span>=<span class="string">http://127.0.0.1:8080/xxl-job-admin</span></span><br><span class="line"></span><br><span class="line"><span class="comment">### 执行器通讯TOKEN：非空时启用；</span></span><br><span class="line"><span class="meta">xxl.job.accessToken</span>=<span class="string"></span></span><br><span class="line"></span><br><span class="line"><span class="comment">### 执行器AppName：执行器心跳注册分组依据；为空则关闭自动注册</span></span><br><span class="line"><span class="meta">xxl.job.executor.appname</span>=<span class="string">xxl-job-executor-sample</span></span><br><span class="line"><span class="comment">### 执行器注册：优先使用该配置作为注册地址，为空时使用内嵌服务 ”IP:PORT“ 作为注册地址。从而更灵活的支持容器类型执行器动态IP和动态映射端口问题。</span></span><br><span class="line"><span class="meta">xxl.job.executor.address</span>=<span class="string"></span></span><br><span class="line"><span class="comment">### 多网卡模式下，使用指定的网络 IP 运行</span></span><br><span class="line"><span class="meta">xxl.job.executor.ip</span>=<span class="string"></span></span><br><span class="line"><span class="comment">### RPC 模块的端口，执行器端口号：小于等于0则自动获取；</span></span><br><span class="line"><span class="meta">xxl.job.executor.port</span>=<span class="string">9999</span></span><br><span class="line"><span class="comment">### 日志目录</span></span><br><span class="line"><span class="meta">xxl.job.executor.logpath</span>=<span class="string">/data/applogs/xxl-job/jobhandler</span></span><br><span class="line"><span class="comment">### 定时清理日志</span></span><br><span class="line"><span class="meta">xxl.job.executor.logretentiondays</span>=<span class="string">30</span></span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ol>
-<ol start="4">
-<li>启动 spring application 程序</li>
-<li>在调度中心启动任务(启动一次)</li>
-<li>在项目下控制台 输入 XXL-JOB, HELLO WORLD.</li>
-</ol>
-
+    <h2 id="Quartz"><a href="#Quartz" class="headerlink" title="Quartz"></a>Quartz</h2><p>最近有需求需要研究下任务调度框架，看了才发现原来之前有用过，只不过就搭了下 demo 。Quartz 是一个任务调度框架。可以用来运行定时任务，例如定时发邮件，定时爬数据（采集交易所记录进行分析，提醒你快爆仓啦），定时自定义任务(运行程序)等。给予一个触发条件，到点即触发相应的 job。类似 linux 下的 crontab 定时任务</p>
+    
+    <a class="article-more-a" href="/2021/06/21/microservice/Distributed_Scheduler/#more">more >></a>
+    
     
 
     
@@ -485,11 +251,38 @@
   <div class="article-info article-info-index">
     
     
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分布式调度框架</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Quartz</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">cron</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">XXL-JOB</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
     
 
     
     <p class="article-more-link">
-      <a class="article-more-a" href="/2021/06/20/microservice/Distributed_Scheduler/">展开全文 >></a>
+      <a class="article-more-a" href="/2021/06/21/microservice/Distributed_Scheduler/">展开全文 >></a>
     </p>
     
 
@@ -1306,6 +1099,106 @@
 
 
   
+    <article id="post-big-data/docker_spark 安装单机" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/05/23/big-data/docker_spark%20%E5%AE%89%E8%A3%85%E5%8D%95%E6%9C%BA/" target="_blank">docker-compose 快速部署 spark (本地单机)</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/05/23/big-data/docker_spark%20%E5%AE%89%E8%A3%85%E5%8D%95%E6%9C%BA/" class="archive-article-date">
+        <time datetime="2021-05-22T23:12:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-23</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="docker-compose-快速部署-spark-单机"><a href="#docker-compose-快速部署-spark-单机" class="headerlink" title="docker-compose 快速部署 spark 单机"></a>docker-compose 快速部署 spark 单机</h2>
+    
+    <a class="article-more-a" href="/2021/05/23/big-data/docker_spark%20%E5%AE%89%E8%A3%85%E5%8D%95%E6%9C%BA/#more">more >></a>
+    
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Spark</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">docker-compose</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/05/23/big-data/docker_spark%20%E5%AE%89%E8%A3%85%E5%8D%95%E6%9C%BA/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1684,6 +1577,22 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ROS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">分布式调度框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Quartz</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">cron</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">XXL-JOB</a>
               </li>
             
             <div class="clearfix"></div>
