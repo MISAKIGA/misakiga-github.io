@@ -208,6 +208,145 @@
             
 
   
+    <article id="post-microservice/Distributed_Scheduler" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2021/06/20/microservice/Distributed_Scheduler/" target="_blank">microservice/Distributed_Scheduler</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/2021/06/20/microservice/Distributed_Scheduler/" class="archive-article-date">
+        <time datetime="2021-06-20T07:48:53.794Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-20</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="Quartz"><a href="#Quartz" class="headerlink" title="Quartz"></a>Quartz</h2><p>最近有需求需要研究下任务调度框架，看了才发现原来之前有用过，只不过就搭了下 demo 。Quartz 是一个任务调度框架。可以用来运行定时任务，例如定时发邮件，定时爬数据（采集交易所记录进行分析，提醒你快爆仓啦），定时自定义任务(运行程序)等。给予一个触发条件，到点即触发相应的 job。类似 linux 下的 crontab 定时任务</p>
+<h3 id="cron-表达式"><a href="#cron-表达式" class="headerlink" title="cron 表达式"></a>cron 表达式</h3><p> cron 表达式是 Linux 系统用来设计计划任务的，比如：每天晚上 12 点重启指定应用，到定时运行指定的脚本。</p>
+<h4 id="cron-格式："><a href="#cron-格式：" class="headerlink" title="cron 格式："></a>cron 格式：</h4><p>cron表现为一个字符串，字符串包含 6-7 个字段，字段间空格相隔，这个字段允许填入的任何值或特殊字符。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>允许值</th>
+<th>允许的特殊字符</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>秒</td>
+<td>0-59</td>
+<td>， - * /</td>
+</tr>
+<tr>
+<td>分</td>
+<td>0-59</td>
+<td>， - * /</td>
+</tr>
+<tr>
+<td>小时</td>
+<td>0-23</td>
+<td>， - * /</td>
+</tr>
+<tr>
+<td>日期</td>
+<td>1-31</td>
+<td>， - * / L W C</td>
+</tr>
+<tr>
+<td>月份</td>
+<td>1-12 or JAN-DEC</td>
+<td>， - * /</td>
+</tr>
+<tr>
+<td>星期</td>
+<td>1-7 or SUN-SAT</td>
+<td>， - * / L C #</td>
+</tr>
+<tr>
+<td>年</td>
+<td>留空，1970-2099</td>
+<td>， - * /</td>
+</tr>
+</tbody></table>
+<p>特殊字符所表示的含义：</p>
+<ul>
+<li><p><kbd>*</kbd> 指定所有值。如：在分钟字段表示 “每分钟”</p>
+</li>
+<li><p><kbd>-</kbd> 指定一个范围。如 10-12 在小时字段表示 “10点、11点、12点”</p>
+</li>
+<li><p><kbd>,</kbd> 指定另外的值。如：MON,WED,FRI 在星期字段表示 “周一、周三、周五”</p>
+</li>
+<li><p><kbd>?</kbd> 只在日期和星期字段中使用。指定 “非明确的值”。需要通过在这两个字段中指定一些东西的时候。</p>
+</li>
+<li><p><kbd>L</kbd> 指定在用或者星期中的某天（最后一天）。“Last” 的缩写，在星期中表示为 “7” 或者 “SAT”，在月中表示月份中最后一天 ”1月31日，2 月 28 日“。如果在星期字段某个 value 后面，则表示 ”某月的最后一个星期 value“，如 ”6L“ 表示某月的最后一个星期五。（注意： cron 中 1 表示周日，7 表示周六）</p>
+</li>
+<li><p><kbd>W</kbd> 只能用在月份字段中，指定了离指定日期最近的那个星期日</p>
+</li>
+<li><p><kbd>#</kbd> 只能用在星期字段，指定了第 n 个星期 value 在某月中</p>
+</li>
+</ul>
+<p>通常 cron 可以用在线工具生成。<a href="https://cron.qqe2.com/" target="_blank" rel="noopener">在线Cron表达式生成器</a></p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2021/06/20/microservice/Distributed_Scheduler/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-notes/settingcomputer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1066,110 +1205,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/2021/05/23/big-data/docker_spark%20%E5%AE%89%E8%A3%85%E5%8D%95%E6%9C%BA/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-big-data/Hadoop基本操作" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2021/05/22/big-data/Hadoop%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" target="_blank">Hadoop 基本操作</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/2021/05/22/big-data/Hadoop%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="archive-article-date">
-        <time datetime="2021-05-22T06:21:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-22</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h2 id="Hadoop-基本操作"><a href="#Hadoop-基本操作" class="headerlink" title="Hadoop 基本操作"></a>Hadoop 基本操作</h2>
-    
-    <a class="article-more-a" href="/2021/05/22/big-data/Hadoop%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/#more">more >></a>
-    
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Hadoop</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HDFS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分布式文件系统</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2021/05/22/big-data/Hadoop%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">展开全文 >></a>
     </p>
     
 
