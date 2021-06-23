@@ -239,94 +239,10 @@
     
     <p>SQL 优化</p>
 <ul>
-<li><p>遵循 小表驱动大表。</p>
-</li>
-<li><p>UNION 和 OR，多个 OR 语句 使用 <strong>UNION</strong> 可以提高速度，表查询 使用 OR 可能导致索引失效。</p>
-</li>
-<li><p>LIKE 不能以 % 开头，可能导致索引失效。</p>
-</li>
-<li><p>使用查询语句 where 条件时，不能出现函数，可能导致索引失效。</p>
-</li>
-<li><p>组合索引遵循从 <strong>左到右</strong> 原则, 否则索引失效。SELECT * FROM table WHERE name = ‘zhangsan’ AND age = 18, 组合索引必须是 name,age 形式。</p>
-</li>
-<li><p>索引尽量不超过 10 个</p>
-</li>
-<li><p>表必须有主键 ，加快查询效率</p>
-</li>
-<li><p>分表，根据业务字段尾数中的个位或十位或百位（以此类推）做表名达到分表目的。</p>
-</li>
-<li><p>分库，根据业务字段尾数中的个位或十位或百位（以此类推）做表名达到分库目的。</p>
-</li>
-<li><p>表分区，类似硬盘分区，将某个时间段的时间放在分区里，加快查询速度，可配合 分表 + 表分区 结合使用。</p>
-</li>
-<li><p>MYSQL 神器：EXPLAIN 模拟优化器执行查询语句，分析查询语句或者表结构的性能瓶颈。<a href="https://www.php.cn/mysql-tutorials-454417.html" target="_blank" rel="noopener">EXPLAIN 文章</a></p>
-</li>
-</ul>
-<ul>
-<li><p>反向条件查询不能使用索引</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># no in / not exists 都不是好习惯</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">from</span> <span class="keyword">order</span> <span class="keyword">where</span> <span class="keyword">status</span> != <span class="number">0</span> <span class="keyword">and</span> <span class="keyword">status</span> != <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 优化为 in 查询</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">from</span> <span class="keyword">order</span> <span class="keyword">where</span> <span class="keyword">status</span> <span class="keyword">in</span> (<span class="number">2</span>,<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>前导模糊查询不能使用索引; 例如 LIKE %xxx</p>
-</li>
-<li><p>数据区分度不大的字段不宜使用索引；</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 性别只有男 女，每次过滤掉的数据很少</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">from</span>  <span class="keyword">user</span> <span class="keyword">where</span> sex =<span class="number">1</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 能过滤 80% 的数据时就可以使用索引。对于订单状态，如果状态很少，不宜使用索引，如果状态值很多，能都过滤大量数据，则应该建立索引。</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在属性上进行计算不能命中索引</p>
-</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">from</span> <span class="keyword">order</span> <span class="keyword">where</span> <span class="keyword">YEAR</span>(<span class="keyword">data</span>) &lt;= <span class="string">'2017'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 即使 data 建立了索引，也会全表扫描，可优化为值计算</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">from</span> <span class="keyword">order</span> <span class="keyword">where</span> <span class="keyword">data</span> &lt;= CURDATA()</span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">from</span> <span class="keyword">order</span> <span class="keyword">where</span> <span class="keyword">data</span> &lt;= <span class="string">'2017-01-01'</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>非周知SQL优化实践</p>
-</li>
-<li><p>如果业务大部分是单条查询，使用 Hash 索引性能更好，例如用户中心</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> uid =?</span><br><span class="line"><span class="keyword">select</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> login_name=?</span><br><span class="line"></span><br><span class="line"><span class="comment"># 因为 B-Tree 索引时间复杂度是 O(log(n)), 而 Hash 索引时间复杂度是 O(1)</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>允许 null 的列，查询有潜在坑，单列索引不存 null 值，复合索引不存全为 null 值，如果列允许为 null，可能会得到“不符合预期”的结果集</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> <span class="keyword">name</span> != <span class="string">'shenjian'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果 name 允许为 null 值，索引不存储 null 值，结果集中不会包含这些记录。所以，使用 not null 约束以及设置默认值</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>符合索引最左前缀，并不是值 SQL 语句的 where 顺序要和复合索引一致</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 用户中心建立了 （login_name, passwd) 的复合索引</span><br><span class="line">select from user where login_name&#x3D;? and passwd &#x3D;?</span><br><span class="line">select fron user where passwd&#x3D;? and login_name&#x3D;?</span><br><span class="line"></span><br><span class="line"># 都能够命中索引</span><br><span class="line">select from user where login_name&#x3D;?</span><br><span class="line"></span><br><span class="line"># 也能命中索引，满足复合索引最左前缀</span><br><span class="line">select from user where passwd&#x3D;?</span><br><span class="line"></span><br><span class="line"># 不能命中索引，不满足复合索引最左前缀</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用 ENUM 而不是字符串，ENUM 保持的是 TINYINT ， 不要在枚举里插入 “中国”，“广东”，“技术部” 这样的字符串，字符串空间大，效率低。</p>
-</li>
-</ul>
-<p>小众有用</p>
-<ul>
-<li><p>如果明确知道只有一条结果返回 limit 1 能够提高效率</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> login_name=?</span><br><span class="line"><span class="comment"># 优化</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> login_name=? <span class="keyword">limit</span> <span class="number">1</span></span><br><span class="line"><span class="comment"># 你知道只有一条结果，但数据并不知道，明确告诉它，让其主动停止游标移动</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>把计算放到业务层而不是数据库层，除了节省数据的 CPU，还有意想不到的查询缓存优化效果</p>
-</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">from</span> <span class="keyword">order</span> <span class="keyword">where</span> <span class="keyword">data</span> &lt;= <span class="keyword">CURDATE</span>()</span><br><span class="line"><span class="comment"># 应该优化为</span></span><br><span class="line">$<span class="keyword">curDate</span> = <span class="built_in">date</span>(<span class="string">'Y-m-d'</span>);</span><br><span class="line">$res = mysqlquery('<span class="keyword">select</span> <span class="keyword">from</span> <span class="keyword">order</span> <span class="keyword">where</span> <span class="keyword">data</span> &lt;= $<span class="keyword">curDate</span><span class="string">');</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 释放了数据库的 CPU， 多次调用，传入的 SQL 相同，才可以利用查询缓存</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>强制类型转换会全表扫描</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> phone=<span class="number">13712354789</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 这样不会命中 phone 索引</span></span><br><span class="line"><span class="comment"># 优化</span></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">from</span> <span class="keyword">user</span> <span class="keyword">where</span> phone=<span class="string">'13712354789'</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>不要使用 select * (文章里的 SQL 都不合格), 只需要返回需要的列，能够节省许多数据传输量，与数据库的内存使用量。</p>
-</li>
-</ul>
-<h3 id="MYSQL-死锁"><a href="#MYSQL-死锁" class="headerlink" title="MYSQL 死锁"></a>MYSQL 死锁</h3><p>产生死锁的四个条件，只要发生死锁，这四个条件必然成立:</p>
-<ul>
-<li>互斥条件：一个资源每次只能被一个进程使用</li>
-<li>请求与保持条件：一个进程因请求资源而阻塞时，对以获取的资源保持不放。</li>
-<li>不剥夺条件：进程已获得的资源，在为使用完之前，不能强行剥夺。</li>
-<li>循环等待条件：若干进程之间形成一种头尾相接的循环等待资源关系</li>
-</ul>
-<p>降低死锁概率：</p>
-<ul>
-<li>按同一顺序访问对象</li>
-<li>避免事务中的用户交互</li>
-<li>保持事务的用户交互</li>
-<li>保持事务简短并在一个批处理中</li>
-<li>使用低隔离级别</li>
-<li>使用绑定连接。</li>
-</ul>
-<h4 id="数据库索引的原理"><a href="#数据库索引的原理" class="headerlink" title="数据库索引的原理"></a>数据库索引的原理</h4><p>数据库索引，是数据库管理系统中的一个排序的数据结构，以协助快速查询、更新数据库表中数据。索引通常使用 BTree 以及变种 B+ Tree。B-Tree 索引通常非常占用内存，不能全部存储在内存中，但是如果存储在磁盘，索引查找的过程中就要产生磁盘 I/O 的消耗，索引的结构组织要尽量减少查找过程中磁盘 I/O 的存取次数。</p>
-<p><a href="https://www.cnblogs.com/soundcode/p/4454292.html" target="_blank" rel="noopener">https://www.cnblogs.com/soundcode/p/4454292.html</a></p>
-
+<li><p>遵循 小表驱动大表。
+    
+    <a class="article-more-a" href="/2021/06/23/mysql/mysql_sql/#more">more >></a>
+    
     
 
     
