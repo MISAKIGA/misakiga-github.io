@@ -6,18 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://misakiga.github.io">
-  <title>Tag: 随笔 | MSGA-BLOG</title>
+  <title>Spark 大数据 | MSGA-BLOG</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="ius">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MSGA-BLOG">
-<meta property="og:url" content="https://misakiga.github.io/tags/%E9%9A%8F%E7%AC%94/index.html">
+  <meta name="description" content="SparkSpark RDD(弹性分布式数据集) RDD(Resilient Distrbuted Dataset，弹性分布式数据集)，是一个容错的、并行的 __数据结构 __(DAG: 有向无环图) ，可以让用户显式地将数据存储到磁盘和内存中， 并且还能控制分区。对于迭代式计算和交互式数据挖掘，RDD可以将中间计算的数据结构保存在内存，若是后面需要中间结果参与计算时，则可以直接从内存中读取，极高">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spark 大数据">
+<meta property="og:url" content="https://misakiga.github.io/2021/07/18/big-data/Spark/index.html">
 <meta property="og:site_name" content="MSGA-BLOG">
-<meta property="og:description" content="ius">
+<meta property="og:description" content="SparkSpark RDD(弹性分布式数据集) RDD(Resilient Distrbuted Dataset，弹性分布式数据集)，是一个容错的、并行的 __数据结构 __(DAG: 有向无环图) ，可以让用户显式地将数据存储到磁盘和内存中， 并且还能控制分区。对于迭代式计算和交互式数据挖掘，RDD可以将中间计算的数据结构保存在内存，若是后面需要中间结果参与计算时，则可以直接从内存中读取，极高">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-07-18T03:38:01.000Z">
+<meta property="article:modified_time" content="2021-07-18T03:38:27.545Z">
 <meta property="article:author" content="MISAKIGA">
+<meta property="article:tag" content="随笔">
+<meta property="article:tag" content="大数据">
+<meta property="article:tag" content="Spark">
+<meta property="article:tag" content="计算引擎">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="MSGA-BLOG" type="application/atom+xml">
@@ -201,41 +207,706 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-big-data/Spark" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
   
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+    <h1 class="article-title" itemprop="name">
+      Spark 大数据
+    </h1>
+  
+
+
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
 <a href="/2021/07/18/big-data/Spark/" class="archive-article-date">
         <time datetime="2021-07-18T03:38:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-18</time>
 </a>
 
-        </div>
-    	 
   
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/07/18/big-data/Spark/" target="_blank">Spark 大数据</a>
   
-    </h1>
-  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">8.5k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">38分</span>
+    </span>
+  </span>
+</div>
 
 
-        <div class="article-info info-on-right">
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="Spark"><a href="#Spark" class="headerlink" title="Spark"></a>Spark</h1><h2 id="Spark-RDD-弹性分布式数据集"><a href="#Spark-RDD-弹性分布式数据集" class="headerlink" title="Spark RDD(弹性分布式数据集)"></a>Spark RDD(弹性分布式数据集)</h2><p> RDD(Resilient Distrbuted Dataset，弹性分布式数据集)，是一个容错的、并行的 __数据结构 __(DAG: 有向无环图) ，可以让用户显式地将数据存储到磁盘和内存中， 并且还能控制分区。对于迭代式计算和交互式数据挖掘，RDD可以将中间计算的数据结构保存在内存，若是后面需要中间结果参与计算时，则可以直接从内存中读取，极高地提高了计算速度。</p>
+<p>首先搞懂 RDD 前，先搞懂 Java8 的新特性，流运算 (Stream)。什么是流？流可以<a id="more"></a>不严谨地简单地理解为是一个数组，而流运算可以理解为，对数组的“流式”运算。举个栗子</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String,List&lt;Object&gt;&gt; maps;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 需求： 将 Map 所有 value 里的 list 对象转为 Student 对象然后打平返回一个数组。</span></span><br><span class="line"><span class="comment">// 使用流 API</span></span><br><span class="line">maps.values().stream()</span><br><span class="line">				<span class="comment">// map 方法，传入一个"函数",每个元素都会调用这个 “函数” 进行“运算”，最后返回一个 Stream&lt;?&gt; 结果。</span></span><br><span class="line">                .map(<span class="keyword">this</span>::obj2Student)</span><br><span class="line">                <span class="comment">// 对上一步的计算结果 Stream 进行计算。</span></span><br><span class="line">                <span class="comment">// 将数组打平，二维数组降为一维数组。Stream&lt;Student&gt;</span></span><br><span class="line">                .flatMap(Collection::stream)</span><br><span class="line">                <span class="comment">// 将数组转为 List&lt;Student&gt;</span></span><br><span class="line">                .collect(Collectors.toList());</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 其他框架支持的流运算</span></span><br><span class="line"><span class="comment">// Spark 的 RDD，（Hadoop）</span></span><br><span class="line"><span class="comment">// Flink 的 DataSteram （分布式集合转换）</span></span><br><span class="line"><span class="comment">// Kafka (流式分布式计算平台) 也有 stream 操作，接口是 KStream 、KTable</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>是不是很眼熟？这就是 Java版 Functional Programming ，像流水线一样对数组一顿操作，一环扣一环。最终通过结束函数结束运算输出结果。</p>
+<p>通常 Stream 是本地程序层面的只能在本地处理数组流。而大数据通常是超大数据量，数据分布在不同集群中(分布式)，(传统使用 Hadoop 计算，可以解决这个问题，但是 Hadoop 是直接对磁盘 I/O，效率非常慢，扯远了。。。）但是 RDD 很好地解决了这个问题，而且它是基于内存运行的，即数据都在内存中运算。RDD 分布式数据集配合 Stream 操作，就可以高效实现在线大数据运算，并且具有很好的特性支持数据操作和恢复。</p>
+<h3 id="RDD五大特性"><a href="#RDD五大特性" class="headerlink" title="RDD五大特性"></a>RDD五大特性</h3><ol>
+<li><p>分区列表（a list of partitions）<br> 每个RDD被分为多个分区，这些分区运行在不同节点，每个分区都会被计算任务处理。在RDD创建时，默认分区数量为该程序所分配的资源CPU核数（一个Core可以承载2~4个Partition），如果是从HDFS文件创建，默认为文件的 <strong>Block</strong> 数。 </p>
+</li>
+<li><p>每个分区都有一个计算函数（a function for computing each split）<br> Spark的RDD计算函数都是以分片为基本单位，每个RDD都会实现 <strong>compute</strong> 函数，对具体的分片进行计算</p>
+</li>
+<li><p>依赖于其他RDD（a list of dependencies on other RDDs）<br> RDD的每次转换都会生成一个新的RDD，所以RDD之间就会形成类似于流水线一样的前后依赖关系。部分分区数据丢失时，Spark可以通过这个依赖关系重新计算丢失的分区数据，而不是对RDD的所有分区进行计算。</p>
+</li>
+<li><p>（K,V） 数据类型的RDD分类器（a partitioner for Key-Value RDDs）<br> 当前Spark中实现了两种类型的分区函数</p>
+<ol>
+<li><p>基于哈希的 <strong>HashPartitioner</strong> </p>
+</li>
+<li><p>基于范围的 <strong>RangePartitioner</strong>   </p>
+<p>只有（K,V）的RDD才会有分区，非(K,V)的RDD，分区的指是 <strong>None</strong>.</p>
+</li>
+</ol>
+</li>
+<li><p>每个分区数量都会有一个优先位置列表(a list of preferred locations to compute each split on)<br> 优先位置列表会存储每个分区（Partition）的优先位置，对于一个HDFS文件来说，就是每个Parttion块的位置。“移动数据不如移动计算”的概念Spark进行任务调度的时候，会尽可能地将计算任务分配到其所有处理数据块的存储位置。</p>
+</li>
+</ol>
+<h2 id="创建RDD"><a href="#创建RDD" class="headerlink" title="创建RDD"></a>创建RDD</h2><ol>
+<li>从文件系统加载数据创建RDD <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1. 从linux本地文件系统加载数据创建RDD</span></span><br><span class="line">scala&gt; <span class="keyword">val</span> test = sc.textFile(<span class="string">"file:///export/data/test.txt"</span>)</span><br><span class="line"><span class="comment">//2. 从HDFS中加载数据创建RDD</span></span><br><span class="line"><span class="comment">// HDFS 上的 /data 目录下有一个 test.txt 文件</span></span><br><span class="line"><span class="comment">// 也可以改为 hdfs://localhost:9000/data/test.txt</span></span><br><span class="line">scala&gt; <span class="keyword">val</span> test = sc.textFile(<span class="string">"/data/test.txt"</span>)</span><br></pre></td></tr></table></figure></li>
+<li>通过并行集合创建RDD <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; <span class="keyword">val</span> array = <span class="type">Array</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line">scala&gt; <span class="keyword">val</span> arrRDD = sc.parallelize(array)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="RDD转换算子"><a href="#RDD转换算子" class="headerlink" title="RDD转换算子"></a>RDD转换算子</h2><p>“转换” 操作主要用于根据已有RDD创建新的RDD，每一次通过 Transformation 算子计算后都会返回一个新的 RDD。</p>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>转换算子</th>
+<th>相关说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>filter(func)</td>
+<td>筛选出满足函数的元素，并返回一个新的数据集</td>
+</tr>
+<tr>
+<td>2</td>
+<td>map(func)</td>
+<td>将每个元素传递到函数中，返回结果是新的数据集</td>
+</tr>
+<tr>
+<td>3</td>
+<td>flatMap(func)</td>
+<td>与map类似，但是每个输入都可以映射到0或者多个输出</td>
+</tr>
+<tr>
+<td>4</td>
+<td>groupByKey()</td>
+<td>应用于Key-Value数据集时，返回一个新的（Key, Iterable {Value}）</td>
+</tr>
+<tr>
+<td>5</td>
+<td>reduceByKey(func)</td>
+<td>应用于Key-Value数据集时，返回一个新的Key-Value形式数据集。其中每个Value值是每个Key传递到函数func中进行聚合后的结果</td>
+</tr>
+</tbody></table>
+<ol>
+<li>filter(func) <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; <span class="keyword">val</span> test = sc.textFile(<span class="string">"file:///export/data/test.txt"</span>)</span><br><span class="line"><span class="comment">// 排除“spark”以外的单词</span></span><br><span class="line">scala&gt; <span class="keyword">val</span> linesWithspark = test.filter(line =&gt; line.contains(<span class="string">"spark"</span>))</span><br></pre></td></tr></table></figure></li>
+<li>map(func) <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; <span class="keyword">val</span> test = sc.textFile(<span class="string">"file:///export/data/test.txt"</span>)</span><br><span class="line"><span class="comment">// 将文本分成一个个单词</span></span><br><span class="line">scala&gt; <span class="keyword">val</span> words = test.map(line =&gt; line.split(<span class="string">" "</span>))</span><br></pre></td></tr></table></figure></li>
+<li>flatMap(func) <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; <span class="keyword">val</span> test = sc.textFile(<span class="string">"file:///export/data/test.txt"</span>)</span><br><span class="line"><span class="comment">// 语句会先执行map(func)，后执行 flat() 扁平化操作。</span></span><br><span class="line">scala&gt; <span class="keyword">val</span> words = test.flatMap(line =&gt; line.split(<span class="string">" "</span>))</span><br></pre></td></tr></table></figure></li>
+<li>groupByKey() <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; <span class="keyword">val</span> lines = sc.textFile(<span class="string">"file:///export/data/test.txt"</span>)</span><br><span class="line"><span class="comment">// 得到 ("spark",1), ("spark",1), ("spark",1)</span></span><br><span class="line">scala&gt; <span class="keyword">val</span> words = lines.flatMap(line =&gt; line.split(<span class="string">" "</span>)).map(word =&gt; (word, <span class="number">1</span>))</span><br><span class="line"><span class="comment">// 合并相同key</span></span><br><span class="line"><span class="comment">// ("spark", (1,1,1))</span></span><br><span class="line">scala&gt; <span class="keyword">val</span> groupWords = words.groupByKey()</span><br></pre></td></tr></table></figure></li>
+<li>reduceByKey(func) <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; <span class="keyword">val</span> lines = sc.textFile(<span class="string">"file:///export/data/test.txt"</span>)</span><br><span class="line">scala&gt; <span class="keyword">val</span> words = lines.flatMap(line =&gt; line.split(<span class="string">" "</span>)).map(word =&gt; (word, <span class="number">1</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. reduceByKey()操作，把所有Key相同的Value值合到一起，生成一个新的 Key-value 然后执行 func 函数，把(1,1,1)进行聚合求和，得到最终结果 ("spark", 3)</span></span><br><span class="line">scala&gt; <span class="keyword">val</span> reduceWords = words.reduceByKey((a,b) =&gt; a+b)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 打印</span></span><br><span class="line">scala&gt; reduceWords.foreach(printlnsdd)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="行动算子"><a href="#行动算子" class="headerlink" title="行动算子"></a>行动算子</h2><table>
+<thead>
+<tr>
+<th>行动算子</th>
+<th>相关说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>count()</td>
+<td>返回数据集中的元素个数</td>
+</tr>
+<tr>
+<td>first()</td>
+<td>返回数组的第一个元素</td>
+</tr>
+<tr>
+<td>take(n)</td>
+<td>以数组的形式返回数组集中的前 n 个元素</td>
+</tr>
+<tr>
+<td>reduce(func)</td>
+<td>通过函数 func(输入两个参数并返回一个值)聚合数据集中的元素</td>
+</tr>
+<tr>
+<td>collect()</td>
+<td>以数组的形式返回数据集中的所有元素</td>
+</tr>
+<tr>
+<td>foreach(func)</td>
+<td>将数据集中的每个元素传递到函数 func 中运行</td>
+</tr>
+</tbody></table>
+<h2 id="RDD-机制"><a href="#RDD-机制" class="headerlink" title="RDD  机制"></a>RDD  机制</h2><h3 id="持久化机制"><a href="#持久化机制" class="headerlink" title="持久化机制"></a>持久化机制</h3><table>
+<thead>
+<tr>
+<th>存储级别</th>
+<th>相关说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MEMORY_ONLY</td>
+<td>默认存储级别。将RDD作为返序列化的Java对象，缓存到JVM中，若内存放不下（内存满），某些分区将不会被缓存，并且每次需要时重新计算</td>
+</tr>
+<tr>
+<td>MEMORY_AND_DISK</td>
+<td>将RDD作为反序列化的Java对象，缓存到JVM中，若内存放不下（内存满），则将剩余分区存储到磁盘上，并在需要时从磁盘读取</td>
+</tr>
+<tr>
+<td>MEMORY_ONLY_SER</td>
+<td>将RDD作为序列化的Java对象（每个分区序列化为一个字节数组），比反序列化的 Java对象节省空间，但读取时CPU占用更大</td>
+</tr>
+<tr>
+<td>MEMORY_AND_DISK_SET</td>
+<td>与MEMORY_ONLY_SER 类似，但是当内存放不下时则易出到磁盘，而不是每次需要时重新计算。</td>
+</tr>
+<tr>
+<td>DISK_ONLY</td>
+<td>仅将RDD分区全部存储到磁盘上</td>
+</tr>
+<tr>
+<td>MEMORY_ONLY_2 <br> MEMORY_AND_DISK_2</td>
+<td>与上面级别相同。若加上后缀_2，代表的是将每个持久化的数据都复制一份副本，并将副本保存到磁盘上</td>
+</tr>
+<tr>
+<td>OFF_HEAP(实验性)</td>
+<td>与 MEMORY_ONLY_SET 类似，但将数据存储在堆外内存中（这需要启用堆外内存）</td>
+</tr>
+</tbody></table>
+<ol>
+<li>使用 persist() 方法对 RDD 进行持久化</li>
+</ol>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; <span class="keyword">import</span> org.apache.spark.storage.<span class="type">StorageLevel</span></span><br><span class="line">scala&gt; <span class="keyword">import</span> org.apache.spark.rdd.<span class="type">RDD</span></span><br><span class="line">scala&gt; <span class="keyword">val</span> list = <span class="type">List</span>(<span class="string">"hadoop"</span>,<span class="string">"spark"</span>,<span class="string">"hive"</span>)</span><br><span class="line"><span class="comment">// 序列化</span></span><br><span class="line">scala&gt; <span class="keyword">val</span> listRDD = sc.parallelize(list)</span><br><span class="line"><span class="comment">// 持久化，减少 I/O 操作</span></span><br><span class="line">scala&gt; listRDD.persist(<span class="type">StorageLevel</span>.<span class="type">DISK_ONLY</span>)</span><br><span class="line"><span class="comment">// 执行到这一句触发全局计算时，persist() 方法才得以运行，把listRDD 持久化到磁盘</span></span><br><span class="line">scala&gt; println(listRDD.count())</span><br><span class="line"><span class="comment">// 进行第二次算子操作，但不触发全局计算，只需使用已经进行持久化的 listRDD 来进行计算</span></span><br><span class="line">scala&gt; println(listRDD.collect().mkString(<span class="string">","</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">2.</span> 使用 cache() 方法对 <span class="type">RDD</span> 进行持久化</span><br><span class="line">​```scala</span><br><span class="line">scala&gt; <span class="keyword">val</span> list = <span class="type">List</span>(<span class="string">"hadoop"</span>,<span class="string">"spark"</span>,<span class="string">"hive"</span>)</span><br><span class="line"><span class="comment">// 序列化</span></span><br><span class="line">scala&gt; <span class="keyword">val</span> listRDD = sc.parallelize(list)</span><br><span class="line"><span class="comment">// 缓存，底层调用的是 persist(MEMORY_ONLY) 用来持久化</span></span><br><span class="line">scala&gt; listRDD.cache()</span><br><span class="line"><span class="comment">// 执行到这一句触发全局计算时，把listRDD 持久化到磁盘</span></span><br><span class="line">println(listRDD.count())</span><br><span class="line"><span class="comment">// 进行第二次算子操作，但不触发全局计算，只需使用已经进行持久化的 listRDD 来进行计算</span></span><br><span class="line">scala&gt; println(listRDD.collect().mkString(<span class="string">","</span>))</span><br></pre></td></tr></table></figure>
+
+<h2 id="容错机制"><a href="#容错机制" class="headerlink" title="容错机制"></a>容错机制</h2><ol>
+<li>血统方式<br>根据 RDD 之间的依赖关系对丢失数据的 RDD 进行数据恢复。当子 RDD 进行窄依赖运算，只需要把丢失数据的父 RDD 的对于分区进行重新计算即可。当子 RDD 进行宽依赖计算时，需要父 RDD 的所有分区进行全局计算，这种方式会导致数据冗余计算。</li>
+<li>检查点方式<br>将 RDD 写入磁盘进行存储，当RDD 进行宽依赖运算时，只需要在中间阶段设置一个检查点进行容错，通过 Spark 中的 sparkContext 对象调用 setCheckpoint() 方法，设置一个容错文件相同目录（HDFS）做检查点。从检查点的 RDD 开始计算，不用全局计算，减少开销。</li>
+</ol>
+<h2 id="Spark-SQL-结构化数据文件处理"><a href="#Spark-SQL-结构化数据文件处理" class="headerlink" title="Spark SQL 结构化数据文件处理"></a>Spark SQL 结构化数据文件处理</h2><p>Spark SQL 的前身是 Shark，它运行在 Spark 系统之上，重用了 Hive 的工作机制，直接继承了 Hive 的各个组件。Spark SQL 主要有以下三个功能，支持多种数据源的查询与加载，兼容 Hive 可以使用 JDBC\ODBC 的连接方式来执行 SQL 语句。</p>
+<ol>
+<li>可以从各种结构化数据源（JSON、Hive、Parquet等）中读取数据进行分析</li>
+<li>包含行业标准的 JDBC 和 ODBC 连接方式，不局限于程序内使用。</li>
+<li>可以无缝地将 SQL 查询与 Spark 程序进行结合，能够将结构化数据作为 spark 中的分布式数据集(RDD) 进行查询。</li>
+</ol>
+<h3 id="DataFrame"><a href="#DataFrame" class="headerlink" title="DataFrame"></a>DataFrame</h3><table>
+<thead>
+<tr>
+<th>代码示例</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>spark.read.text(“people.txt”)</td>
+<td>读取 txt 格式文本文件，创建DataFrame</td>
+</tr>
+<tr>
+<td>spark.read.csv(“people.csv”)</td>
+<td>读取 csv 格式文本文件，创建DataFrame</td>
+</tr>
+<tr>
+<td>spark.read.json(“people.json”)</td>
+<td>读取 json 格式文本文件，创建DataFrame</td>
+</tr>
+<tr>
+<td>spark.read.parquet(“people.parquet”)</td>
+<td>读取 parquet 格式文本文件，创建DataFrame</td>
+</tr>
+</tbody></table>
+<p>通过文件直接创建 DataFrame</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; <span class="keyword">val</span> personDF = spark.read.text(<span class="string">"/spark/test/words.txt"</span>)</span><br><span class="line"><span class="comment">// 打印当前对象的 Schema 元数据信息</span></span><br><span class="line">scala&gt; personDF.printSchema()</span><br><span class="line"><span class="comment">// 查看结果数据</span></span><br><span class="line">scala&gt; personDF.show()</span><br></pre></td></tr></table></figure>
+
+<p>RDD 转换 DataFrame</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; <span class="keyword">val</span> lineRDD = sc.textFile(<span class="string">"/spark/test/words.txt"</span>).map(_.split(<span class="string">" "</span>))</span><br><span class="line"><span class="comment">// 创建 Person 类</span></span><br><span class="line">scala&gt; <span class="keyword">case</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span>(<span class="params">id:<span class="type">Int</span>, name:<span class="type">String</span>, age:<span class="type">Int</span></span>)</span></span><br><span class="line"><span class="class"><span class="title">//</span> <span class="title">将</span> <span class="title">RDD</span> [<span class="type">Array</span>[<span class="type">String</span>]] <span class="title">转为</span> <span class="title">RDD</span>[<span class="type">Person</span>]</span></span><br><span class="line"><span class="class"><span class="title">scala&gt;</span> <span class="title">val</span> <span class="title">personRDD</span> </span>= lineRDD.map(x =&gt; <span class="type">Person</span>(x(<span class="number">0</span>).toInt, x(<span class="number">1</span>), x(<span class="number">2</span>).toInt))</span><br><span class="line"><span class="comment">// 将 RDD 对象转成 DataFrame</span></span><br><span class="line">scala&gt; <span class="keyword">val</span> personDF = personRDD.toDF()</span><br><span class="line">scala&gt; personDF.show</span><br><span class="line">scala&gt; personDF.printSchema</span><br></pre></td></tr></table></figure>
+
+<h3 id="DataFrame-常用操作"><a href="#DataFrame-常用操作" class="headerlink" title="DataFrame 常用操作"></a>DataFrame 常用操作</h3><p>DataFrame 提供了两种语法风格</p>
+<ol>
+<li><p>领域特定语言(DSL)风格操作</p>
+<ol>
+<li>show(): 查看 DataFrame 中的具体内容信息</li>
+<li>printSchema()：查看 DataFrame 的Schema信息</li>
+<li>select()：查看  DataFrame 中选取部分列的数据<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//scala&gt; personDF.select("name").show</span></span><br><span class="line">scala&gt; personDF.select(personDF.col(<span class="string">"name"</span>)).show()</span><br><span class="line"><span class="comment">// 重命名列</span></span><br><span class="line">scala&gt; personDF.select(personDF(<span class="string">"name"</span>).as(<span class="string">"username"</span>), personDF(<span class="string">"age"</span>)).show()</span><br><span class="line"><span class="comment">// 过滤 age 大于或等于 25 的数据</span></span><br><span class="line">scala&gt; personDF.filter(personDF(<span class="string">"age"</span>) &gt;= <span class="number">25</span>).show()</span><br><span class="line"><span class="comment">// 按年龄进行分组并统计相同年练的人数</span></span><br><span class="line">scala&gt; personDF.groupBy(<span class="string">"age"</span>).count().show()</span><br><span class="line"><span class="comment">// 按年龄降序排列</span></span><br><span class="line">scala&gt; personDF.sort(personDF(<span class="string">"age"</span>).desc).show()</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+<li><p>SQL 风格操作</p>
+ <figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将 DataFrame 注册为临时表</span></span><br><span class="line">scala&gt; personDF.registerTempTable(<span class="string">"t_person"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 查询年龄最大的两个的信息</span></span><br><span class="line">scala&gt; spark.sql(<span class="string">"select * from t_person order by age desc limit 2"</span>).show()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 查询年龄大于25岁的人的信息</span></span><br><span class="line">scala&gt; spark.sql(<span class="string">"select * from t_person where age &gt; 25"</span>).show()</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="Dataset-的基础知识"><a href="#Dataset-的基础知识" class="headerlink" title="Dataset 的基础知识"></a>Dataset 的基础知识</h2><p>Dataset 结合了 RDD、DataFrame 与 Dataset 三者的优点。可以通过 SparkSession 中的 createDataset 来创建</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; <span class="keyword">val</span> personDS = spark.createDataset(sc.textFile(<span class="string">"/spark/person.txt"</span>))</span><br><span class="line">scala&gt; personDS.show()</span><br><span class="line"></span><br><span class="line"><span class="comment">// Dataset 与 RDD 转换</span></span><br><span class="line">scala&gt; spark.read.text(<span class="string">"/spark/person.txt"</span>).as[<span class="type">String</span>]</span><br><span class="line">scala&gt; spark.read.text(<span class="string">"/spark/person.txt"</span>).as[<span class="type">String</span>].toDF()</span><br></pre></td></tr></table></figure>
+
+<h2 id="RDD-转换为-DataFrame"><a href="#RDD-转换为-DataFrame" class="headerlink" title="RDD 转换为 DataFrame"></a>RDD 转换为 DataFrame</h2><h3 id="反射机制推断-Schema"><a href="#反射机制推断-Schema" class="headerlink" title="反射机制推断 Schema"></a>反射机制推断 Schema</h3><ol>
+<li>添加 Spark SQL 依赖 (pom.xml)<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--  添加 Spark SQL 依赖 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.spark<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spark-sql_2.12<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spark.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+<li>代码<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> com.msga.spark.sparkdemo.reflect</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.<span class="type">SparkContext</span></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.rdd.<span class="type">RDD</span></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.sql.&#123;<span class="type">DataFrame</span>, <span class="type">SparkSession</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义样例类(利用反射机制推断RDD模式时需要定义一个 case 类，定义了 Table 的结构)</span></span><br><span class="line"><span class="keyword">case</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span>(<span class="params">id:<span class="type">Int</span>, name:<span class="type">String</span>, age:<span class="type">Int</span></span>)</span></span><br><span class="line"><span class="class"><span class="title">object</span> <span class="title">CaseClassSchema</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]): <span class="type">Unit</span> = &#123;</span><br><span class="line">    <span class="comment">//1. 构建 SparkSession</span></span><br><span class="line">    <span class="keyword">val</span> spark : <span class="type">SparkSession</span> = <span class="type">SparkSession</span>.builder()</span><br><span class="line">                                            .appName(<span class="string">"CaseClassSchema"</span>)</span><br><span class="line">                                            .master(<span class="string">"local[2]"</span>)</span><br><span class="line">                                            .getOrCreate()</span><br><span class="line">    <span class="comment">// 2. 获取 SparkContext</span></span><br><span class="line">    <span class="keyword">val</span> sc : <span class="type">SparkContext</span> = spark.sparkContext</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 设置日志级别</span></span><br><span class="line">    sc.setLogLevel(<span class="string">"WARN"</span>)</span><br><span class="line">    <span class="comment">//3. 读取文件</span></span><br><span class="line">    <span class="keyword">val</span> data: <span class="type">RDD</span>[<span class="type">Array</span>[<span class="type">String</span>]] = sc.textFile(<span class="string">"D:\\Java\\ideaProjects\\sparkdemo\\src\\main\\resources\\person.txt"</span>).map(x =&gt; x.split(<span class="string">" "</span>))</span><br><span class="line"></span><br><span class="line">    <span class="comment">//4. 将 RDD 与样例关联</span></span><br><span class="line">    <span class="keyword">val</span> personRdd: <span class="type">RDD</span>[<span class="type">Person</span>] = data.map(x =&gt; <span class="type">Person</span>(x(<span class="number">0</span>).toInt, x(<span class="number">1</span>), x(<span class="number">2</span>).toInt))</span><br><span class="line"></span><br><span class="line">    <span class="comment">//5. 获取DataFrame</span></span><br><span class="line">    <span class="comment">//手动导入隐式转换</span></span><br><span class="line">    <span class="keyword">import</span> spark.implicits._</span><br><span class="line">    <span class="keyword">val</span> personDF: <span class="type">DataFrame</span> = personRdd.toDF</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ------------ DSL 风格操作 ------------</span></span><br><span class="line">    <span class="comment">//1. 显示 DataFrame 的数据，默认显示 20 行</span></span><br><span class="line">    personDF.show()</span><br><span class="line">    <span class="comment">//2. 显示 DataFrame 的 schema 信息</span></span><br><span class="line">    personDF.printSchema()</span><br><span class="line">    <span class="comment">//3. 统计 DataFrame 中年龄大于 30 岁的人数</span></span><br><span class="line">    println(personDF.filter($<span class="string">"age"</span> &gt; <span class="number">30</span>).count())</span><br><span class="line">    <span class="comment">// ----------- DSL 风格操作结束 --------</span></span><br><span class="line">    <span class="comment">// ----------- SQL 风格操作 -------------</span></span><br><span class="line">    <span class="comment">//1. 将 DataFrame 注册成表</span></span><br><span class="line">    personDF.createOrReplaceTempView(<span class="string">"t_person"</span>)</span><br><span class="line">    spark.sql(<span class="string">"select * from t_person"</span>).show()</span><br><span class="line">    spark.sql(<span class="string">"select * from t_person where name='zhangsan'"</span>).show()</span><br><span class="line">    <span class="comment">// ------------SQL 风格操作结束 ---------</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 关闭资源操作</span></span><br><span class="line">    sc.stop()</span><br><span class="line">    spark.stop()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="编程方式定义-Schema"><a href="#编程方式定义-Schema" class="headerlink" title="编程方式定义 Schema"></a>编程方式定义 Schema</h3><p>当 case 类不能提前定义时，需要常用编程方式定义 Schema 信息</p>
+<p>步骤</p>
+<ol>
+<li>创建一个 Row 对象结构的 RDD</li>
+<li>基于 StructType 类型创建 Schema</li>
+<li>通过SparkSession 提供的 createDataFrame() 方法来拼接 Schema </li>
+</ol>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.msga.spark.sparkdemo.code</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.<span class="type">SparkContext</span></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.rdd.<span class="type">RDD</span></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.sql.types.&#123;<span class="type">IntegerType</span>, <span class="type">StringType</span>, <span class="type">StructField</span>, <span class="type">StructType</span>&#125;</span><br><span class="line"><span class="keyword">import</span> org.apache.spark.sql.&#123;<span class="type">DataFrame</span>, <span class="type">Row</span>, <span class="type">SparkSession</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">SparkSqlSchema</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]): <span class="type">Unit</span> = &#123;</span><br><span class="line">    <span class="comment">//1. 创建 SparkSession</span></span><br><span class="line">    <span class="keyword">val</span> spark: <span class="type">SparkSession</span> = <span class="type">SparkSession</span>.builder()</span><br><span class="line">                                          .appName(<span class="string">"SparkSqlSchema"</span>)</span><br><span class="line">                                          .master(<span class="string">"local[2]"</span>)</span><br><span class="line">                                          .getOrCreate()</span><br><span class="line">    <span class="comment">//2. 获取 sparkContext 对象</span></span><br><span class="line">    <span class="keyword">val</span> sc: <span class="type">SparkContext</span> = spark.sparkContext</span><br><span class="line">    sc.setLogLevel(<span class="string">"WARN"</span>)</span><br><span class="line">    <span class="keyword">val</span> dataRDD: <span class="type">RDD</span>[<span class="type">String</span>] = sc.textFile(<span class="string">"D://spark//person.txt"</span>)</span><br><span class="line">    <span class="keyword">val</span> dataArrayRDD: <span class="type">RDD</span>[<span class="type">Array</span>[<span class="type">String</span>]] = dataRDD.map(_.split(<span class="string">" "</span>))</span><br><span class="line">    <span class="comment">//3. 加载数据到 Row 对象中</span></span><br><span class="line">    <span class="keyword">val</span> personRDD: <span class="type">RDD</span>[<span class="type">Row</span>] = dataArrayRDD.map(x =&gt; <span class="type">Row</span>(x(<span class="number">0</span>).toInt, x(<span class="number">1</span>), x(<span class="number">2</span>).toInt))</span><br><span class="line">    <span class="comment">//4. 创建 schema</span></span><br><span class="line">    <span class="keyword">val</span> schema: <span class="type">StructType</span> = <span class="type">StructType</span>(<span class="type">Seq</span>(</span><br><span class="line">      <span class="type">StructField</span>(<span class="string">"id"</span>, <span class="type">IntegerType</span>, <span class="literal">false</span>),</span><br><span class="line">      <span class="type">StructField</span>(<span class="string">"name"</span>, <span class="type">StringType</span>, <span class="literal">false</span>),</span><br><span class="line">      <span class="type">StructField</span>(<span class="string">"age"</span>, <span class="type">IntegerType</span>, <span class="literal">false</span>)</span><br><span class="line">    ))</span><br><span class="line">    <span class="comment">//5. 利用 personRDD 与  Schema 创建 DataFrame</span></span><br><span class="line">    <span class="keyword">val</span> personDF: <span class="type">DataFrame</span> = spark.createDataFrame(personRDD, schema)</span><br><span class="line">    <span class="comment">// DSL 操作显示 DataFrame 的数据结果</span></span><br><span class="line">    personDF.show()</span><br><span class="line">    <span class="comment">// 将 DataFrame 注册成表</span></span><br><span class="line">    personDF.createOrReplaceTempView(<span class="string">"t_person"</span>)</span><br><span class="line">    <span class="comment">// sql 语句操作</span></span><br><span class="line">    spark.sql(<span class="string">"select * from t_person"</span>).show()</span><br><span class="line">    <span class="comment">// 关闭资源</span></span><br><span class="line">    sc.stop()</span><br><span class="line">    spark.stop()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Spark-SQL-操作数据源"><a href="#Spark-SQL-操作数据源" class="headerlink" title="Spark SQL 操作数据源"></a>Spark SQL 操作数据源</h2><h3 id="操作MySQL"><a href="#操作MySQL" class="headerlink" title="操作MySQL"></a>操作MySQL</h3><p>操作 MySQL</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br><span class="line"></span><br><span class="line">CREATE DATABASE spark;</span><br><span class="line">CREATE TABLE person (`id` INT(4), `name` CHAR(20), `age` INT(4));</span><br><span class="line">INSERT INTO person VALUE(1, <span class="string">'SHANGSAN'</span>, 18);</span><br><span class="line">INSERT INTO person VALUE(2, <span class="string">'LISI'</span>, 28);</span><br><span class="line">SELECT * FROM person;</span><br></pre></td></tr></table></figure>
+
+<p>编写 pom.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- MySQL 数据库连接 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>8.0.13<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>scala 程序操作</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.msga.spark.sparkdemo.mysqldemo</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.<span class="type">Properties</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.sql.&#123;<span class="type">DataFrame</span>, <span class="type">SparkSession</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">object</span> <span class="title">DataFrameMysql</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]): <span class="type">Unit</span> = &#123;</span><br><span class="line">    <span class="keyword">val</span> spark: <span class="type">SparkSession</span> = <span class="type">SparkSession</span>.builder()</span><br><span class="line">                                          .appName(<span class="string">"DataFrameMysql"</span>)</span><br><span class="line">                                          .master(<span class="string">"local[2]"</span>)</span><br><span class="line">                                          .getOrCreate()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> properties: <span class="type">Properties</span> = <span class="keyword">new</span> <span class="type">Properties</span>()</span><br><span class="line">    properties.setProperty(<span class="string">"user"</span>, <span class="string">"root"</span>)</span><br><span class="line">    properties.setProperty(<span class="string">"password"</span>, <span class="string">"123456"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 读取Mysql中的数据</span></span><br><span class="line">    <span class="keyword">val</span> mysqlDF: <span class="type">DataFrame</span> = spark.read.jdbc(<span class="string">"jdbc:mysql://192.168.124.129:3306/spark"</span>, <span class="string">"person"</span>, properties)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 显示 MySQL 中表的数据</span></span><br><span class="line">    mysqlDF.show()</span><br><span class="line">    spark.stop()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="写入数据-MySQL"><a href="#写入数据-MySQL" class="headerlink" title="写入数据 MySQL"></a>写入数据 MySQL</h3><figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.msga.spark.sparkdemo.mysqldemo</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.<span class="type">Properties</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.rdd.<span class="type">RDD</span></span><br><span class="line"><span class="keyword">import</span> org.apache.spark.sql.&#123;<span class="type">DataFrame</span>, <span class="type">SparkSession</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建样例类</span></span><br><span class="line"><span class="keyword">case</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span>(<span class="params">id: <span class="type">Int</span>, name:<span class="type">String</span>, age:<span class="type">Int</span></span>)</span></span><br><span class="line"><span class="class"><span class="title">object</span> <span class="title">SparkSqlToMysql</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">main</span></span>(args: <span class="type">Array</span>[<span class="type">String</span>]): <span class="type">Unit</span> = &#123;</span><br><span class="line">    <span class="keyword">val</span> spark: <span class="type">SparkSession</span> = <span class="type">SparkSession</span>.builder()</span><br><span class="line">      .appName(<span class="string">"SparkSqlToMysql"</span>)</span><br><span class="line">      .master(<span class="string">"local[2]"</span>)</span><br><span class="line">      .getOrCreate()</span><br><span class="line">    <span class="comment">// 创建数据</span></span><br><span class="line">    <span class="keyword">val</span>  data = spark.sparkContext.parallelize(<span class="type">Array</span>(<span class="string">"3, wangwu, 22"</span>, <span class="string">"4, zhaoliu, 26"</span>))</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 按 Mysql 列名切分数据</span></span><br><span class="line">    <span class="keyword">val</span> arrRDD: <span class="type">RDD</span>[<span class="type">Array</span>[<span class="type">String</span>]] = data.map(_.split(<span class="string">","</span>))</span><br><span class="line"></span><br><span class="line">    <span class="comment">// RDD 关联 Person 样例类</span></span><br><span class="line">    <span class="keyword">val</span> personRDD: <span class="type">RDD</span>[<span class="type">Person</span>] = arrRDD.map(x =&gt; <span class="type">Person</span>(x(<span class="number">0</span>).toInt, x(<span class="number">1</span>), x(<span class="number">2</span>).toInt))</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 导入隐式转换</span></span><br><span class="line">    <span class="keyword">import</span> spark.implicits._</span><br><span class="line">    <span class="comment">// 将RDD转换成 DataFrame</span></span><br><span class="line">    <span class="keyword">val</span> personDF: <span class="type">DataFrame</span> = personRDD.toDF()</span><br><span class="line">    <span class="comment">// 设置 JDBC 配置参数</span></span><br><span class="line">    <span class="keyword">val</span> prop = <span class="keyword">new</span> <span class="type">Properties</span>()</span><br><span class="line">    prop.setProperty(<span class="string">"user"</span>, <span class="string">"root"</span>)</span><br><span class="line">    prop.setProperty(<span class="string">"password"</span>, <span class="string">"123456"</span>)</span><br><span class="line">    prop.setProperty(<span class="string">"driver"</span>, <span class="string">"com.mysql.cj.jdbc.Driver"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 写入数据</span></span><br><span class="line">    personDF.write.mode(<span class="string">"append"</span>).jdbc(<span class="string">"jdbc:mysql://192.168.124.129:3306/spark"</span>, <span class="string">"spark.person"</span>, prop)</span><br><span class="line">    personDF.show()</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="操作-Hive-数据集"><a href="#操作-Hive-数据集" class="headerlink" title="操作 Hive 数据集"></a>操作 Hive 数据集</h2><p>Hive 是 Hadoop 上的 SQL 引擎，也是大数据中重要的数据仓库工具。</p>
+<ol>
+<li>准备环境<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Hive 常用 MySQL 数据库存放 Hive 元数据， 需要将 MySQL 启动复制到 Spark 下的 jars 目录下</span></span><br><span class="line">cp mysql-connector-java-8.0.13.jar /<span class="built_in">export</span>/servers/spark/jars/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置 hive-site.xml 配置文件复制到 Spark 配置文件中。</span></span><br><span class="line">ln -s /<span class="built_in">export</span>/servers/apache-hive-xxx-bin/conf/hive-site.xml \</span><br><span class="line">/<span class="built_in">export</span>/servers/spark/conf/hive-site.xml</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>hive-site.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.metastore.local<span class="tag">&lt;/<span class="name">name</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span><span class="comment">&lt;!-- 元数据存储在本地 --&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span>   </span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionURL<span class="tag">&lt;/<span class="name">name</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>jdbc:mysql://127.0.0.1:3306/hive?createDatabaseIfNotExist=true&amp;useSSL=false<span class="tag">&lt;/<span class="name">value</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionDriverName<span class="tag">&lt;/<span class="name">name</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>com.mysql.jdbc.Driver<span class="tag">&lt;/<span class="name">value</span>&gt;</span><span class="comment">&lt;!-- jdbc驱动 --&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span>  </span><br><span class="line">     <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionUserName<span class="tag">&lt;/<span class="name">name</span>&gt;</span>  </span><br><span class="line">     <span class="tag">&lt;<span class="name">value</span>&gt;</span>root<span class="tag">&lt;/<span class="name">value</span>&gt;</span><span class="comment">&lt;!-- mysql账号 --&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span>  </span><br><span class="line">     <span class="tag">&lt;<span class="name">name</span>&gt;</span>javax.jdo.option.ConnectionPassword<span class="tag">&lt;/<span class="name">name</span>&gt;</span>  </span><br><span class="line">     <span class="tag">&lt;<span class="name">value</span>&gt;</span>rootpassword<span class="tag">&lt;/<span class="name">value</span>&gt;</span><span class="comment">&lt;!-- mysql密码 --&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>在 Hive 中创建数据库和表<br>首先在 hadoop01 节点上启动 Hive 服务，创建数据库和表</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动 Hive 程序</span></span><br><span class="line"><span class="comment"># hive-3.1.2/bin/hive </span></span><br><span class="line"><span class="comment"># 初始化hive-3.1.2/bin/schematool -dbType mysql -initSchema</span></span><br><span class="line"></span><br><span class="line">hive&gt; create database sparksqltest;</span><br><span class="line">hive&gt; create table if not exists sparksqltest.person(id int, name string, age int);</span><br><span class="line">hive&gt; use sparksqltest;</span><br><span class="line"><span class="comment"># 向数据表中添加数据</span></span><br><span class="line">hive&gt; insert into person values(1, "tom", 29);</span><br><span class="line">hive&gt; insert into person values(2, "jerry", 20);</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>Spark SQL 操作 Hive 数据库<br>执行 Spark-shell ，进入 sparksqltest 数据仓库，查看 person 表是否存在</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">spark-shell --master spark://hadoop01:7077</span><br><span class="line">scala&gt; spark.sql(<span class="string">"use sparksqltest"</span>)</span><br><span class="line">scala&gt; spark.sql(<span class="string">"show tables"</span>).show();</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>向 Hive 表写入数据<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">scala&gt; spark.sql(<span class="string">"select * from person"</span>).show</span><br><span class="line"></span><br><span class="line">scala&gt; <span class="keyword">import</span> java.util.<span class="type">Properties</span></span><br><span class="line">scala&gt; <span class="keyword">import</span> org.apache.spark.sql.types._</span><br><span class="line">scala&gt; <span class="keyword">import</span> org.apache.spark.sql.<span class="type">Row</span></span><br><span class="line">scala&gt; <span class="keyword">val</span> personRDD = spark.sparkContext.parallelize(<span class="type">Array</span>(<span class="string">"3 zhangsan 22"</span>, <span class="string">"4 lisi 29"</span>)).map(_.split(<span class="string">" "</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置 Schema</span></span><br><span class="line">scala&gt; <span class="keyword">val</span> schema: <span class="type">StructType</span> = <span class="type">StructType</span>(<span class="type">List</span>(</span><br><span class="line">      <span class="type">StructField</span>(<span class="string">"id"</span>, <span class="type">IntegerType</span>, <span class="literal">true</span>),</span><br><span class="line">      <span class="type">StructField</span>(<span class="string">"name"</span>, <span class="type">StringType</span>, <span class="literal">true</span>),</span><br><span class="line">      <span class="type">StructField</span>(<span class="string">"age"</span>, <span class="type">IntegerType</span>, <span class="literal">true</span>)</span><br><span class="line">    ))</span><br><span class="line"><span class="comment">// 创建 Row 对象</span></span><br><span class="line">scala&gt; <span class="keyword">val</span> rowRDD = personRDD.map(p =&gt; <span class="type">Row</span>(p(<span class="number">0</span>).toInt, p(<span class="number">1</span>).trim, p(<span class="number">2</span>).toInt))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 建立 rowRDD 与 Schema 对应关系，创建 DataFrame</span></span><br><span class="line">scala&gt; <span class="keyword">val</span> personDF = spark.createDataFrame(rowRDD, schema)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注册临时表</span></span><br><span class="line">scala&gt; personDF.registerTempTable(<span class="string">"t_person"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将数据插入 Hive 表</span></span><br><span class="line">scala&gt; spark.sql(<span class="string">"insert into person select * from t_person"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 查询表数据</span></span><br><span class="line">scala&gt; spark.sql(<span class="string">"select * from person"</span>).show</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="HBase"><a href="#HBase" class="headerlink" title="HBase"></a>HBase</h2><p>HBase的特性</p>
+<ol>
+<li>容量大<br> HBase 分布式数据库中的表可以存储成千上万的行和列组成的数据</li>
+<li>面向列<br> Hbase 面向列存储和权限控制，支持独立检索。按照列存储根据数据动态增加列，并且可以单独对列进行各种操作。</li>
+<li>多版本<br> 表中的每一个列的数据存储都会有多个版本(version)，一般每列对应一条数据，但是有些数据会有多个版本，例如个人的历史修改信息。</li>
+<li>稀疏性<br> 表允许为空，空列不会占用存储空间，因此表可以设计的非常稀疏</li>
+<li>扩展性<br> 底层依赖于 HDFS。当磁盘空间不足是，可以动态增加机器节点（DataNode）来增加磁盘空间，从而避免关系型数据库一样需要数据迁移。</li>
+<li>高可靠性<br> 底层使用的是 HDFS， HDFS 具有备份机制， Spark 出现问题时，Replication（即副本）机制能够保证数据不会发生丢失或损坏。</li>
+</ol>
+<p>HBase 与传统数据库的区别</p>
+<ol>
+<li>存储模式。传统数据库基于行存储，而HBase是基于列存储</li>
+<li>表字段。传统数据库表字段不能超过 30 个，而 HBase 不设限制</li>
+<li>可延伸性。传统数据库存储的列是固定的，HBase可以去动态地增加列，列是不固定的</li>
+</ol>
+<p>HBase 的数据模型</p>
+<ol>
+<li><p>Row Key（行键）<br> 每个 HBase 表中只能有一个行键，它在 HBase 中以字典序的方式存储。数据存储的规则是相近的数据存储到一起。例如 <code>www.apache.org</code>、<code>mail.apache.org</code> ，可以将其反转为 <code>org.apache.www</code>、<code>org.apache.mail</code>, 然后进行存储，这样会把所有的 org.apache 域名存储在一起，避免子域名分散在各处.</p>
+</li>
+<li><p>Timestamp(时间戳)<br>  记录每次操作数据的时间，通常作为数据的版本号。</p>
+</li>
+<li><p>Column(列)<br> HBase 表是有列族名、限定符以及列名组成的，其中“：”为限定符。创建 HBase 表不需要指定列，因为列是可变的，非常灵活。</p>
+</li>
+<li><p>ColumnFamily(列族)<br> 在 HBase 中，列族由许多列组成。同一个表里，不同列族由完全不同的属性，但是一个列族内的所有列都会有系统的属性，而属性都是定义在列族上的。c1、c2、c3 均为列族名。</p>
+</li>
+</ol>
+<table>
+    <tr style="text-align: center; background-color: #878798;">
+        <td rowspan="2">Row Key</td>
+        <td rowspan="2">Timestamp</td>    
+        <td colspan="2">Column Family:c1</td>
+        <td colspan="2">Column Family:c2</td>
+        <td colspan="2">Column Family:c3</td>
+    </tr>
+    <tr style="text-align: center; background-color: #324237;">
+        <td>Column</td>
+        <td>value</td>
+        <td>Column</td>
+        <td>value</td>
+        <td>Column</td>
+        <td>value</td>
+    </tr>
+    <tr>
+        <td>r1</td>
+        <td>t7</td>
+        <td>c1:col-1</td>
+        <td>value-1</td>
+        <td></td>
+        <td></td>
+        <td>c3:col-1</td>
+        <td>value-1</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>t6</td>
+        <td>c1:col-2</td>
+        <td>value-2</td>
+        <td></td>
+        <td></td>
+        <td>c3:col-2</td>
+        <td>value-2</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>t5</td>
+        <td>c1:col-3</td>
+        <td>value-3</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>t4</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>r2</td>
+        <td>t3</td>
+        <td>c1:col-1</td>
+        <td>value-1</td>
+        <td>c2:col-1</td>
+        <td>value-1</td>
+        <td>c3:col-1</td>
+        <td>value-1</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>t2</td>
+        <td>c1:col-2</td>
+        <td>value-2</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>t1</td>
+        <td>c1:col-3</td>
+        <td>value-3</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+
+
+
+<h2 id="HBase-的集群部署"><a href="#HBase-的集群部署" class="headerlink" title="HBase 的集群部署"></a>HBase 的集群部署</h2><p>HBase 通过使用 Zookeeper 来实现高可用集群。</p>
+<p>步骤</p>
+<ol>
+<li><p>到官网下载HBase</p>
+</li>
+<li><p>解压到  /export/servers/ 下</p>
+</li>
+<li><p>将 ${hadoop_path}/etc/hadoop 目录下的 hdfs-site.xml 和 core-site.xml 配置文件复制到 HBase 的 conf 目录下</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp hadoop-2.10.1/etc/hadoop/&#123;hdfs-site.xml,core-site.xml&#125; /<span class="built_in">export</span>/servers/hbase-2.4.2/conf/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入 ${hbase_path}/conf 目录修改 hbase-env.sh 配置文件, 指定 JDK 环境变量并配置 Zookeeper.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/<span class="built_in">export</span>/servers/jdk</span><br><span class="line"><span class="built_in">export</span> HBASE_MANAGES_ZK=<span class="literal">false</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>配置 hbase-site.xml </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 指定Zookeeper地址，用.,.分隔 --&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.zookeeper.quorum<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">value</span>&gt;</span>hadoop01:2181,hadoop02:2181,hadoop03:2181<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="comment">&lt;!-- 指定HBase在HDFS的存储路径 --&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.rootdir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://hadoop01:9000/hbase<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 指定HBase是分布式的 --&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.cluster.distributed<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>true<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.tmp.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>./tmp<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>hbase.unsafe.stream.capability.enforce<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">value</span>&gt;</span>false<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li><p>修改 regionservers </p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hadoop02</span><br><span class="line">hadoop03</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改 backup-masters 配置文件,当中单点故障配置备用 主节点</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop02</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改 profile 文件 </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/profile</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加到 profile文件里</span></span><br><span class="line"><span class="comment"># HBase</span></span><br><span class="line"><span class="built_in">export</span> HBASE_HOME=/<span class="built_in">export</span>/servers/hbase-2.4.2</span><br><span class="line"><span class="comment"># 配置zookeeper使用外部zookeeper（默认内部zookeeper）</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$HBASE_HOME</span>/bin:</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将安装目录 分发到其他服务器 </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 分发到另外两台电脑</span></span><br><span class="line">scp -r /<span class="built_in">export</span>/servers/hbase-2.4.2/ hadoop02:/<span class="built_in">export</span>/servers/</span><br><span class="line">scp -r /<span class="built_in">export</span>/servers/hbase-2.4.2/ hadoop03:/<span class="built_in">export</span>/servers/</span><br></pre></td></tr></table></figure>
+<h2 id="启动HBase集群"><a href="#启动HBase集群" class="headerlink" title="启动HBase集群"></a>启动HBase集群</h2></li>
+</ol>
+</li>
+<li><p>启动zookeeper 和 HDFS</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 所有节点运行</span></span><br><span class="line">zkServer.sh start</span><br><span class="line"><span class="comment"># 在主节点运行</span></span><br><span class="line">start-dfs.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动HBase集群</p>
+</li>
+</ol>
+<p>启动HBase保证时间同步，否则报错 <strong>ClockOutOfSynException</strong>, 用data查看, 用<code>__ntpdate –u cn.pool.ntp.org__</code>命令同步时间.   </p>
+<p>启动HBase集群: <code>start-hbase.sh</code></p>
+<p>浏览器输入： hadoop01:16010</p>
+<p>HBase 的基本操作</p>
+<table>
+<thead>
+<tr>
+<th>命令名称</th>
+<th>相关说明</th>
+<th>命令名称</th>
+<th>相关说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>create</td>
+<td>创建表</td>
+<td>count</td>
+<td>统计表中数据的行数</td>
+</tr>
+<tr>
+<td>put</td>
+<td>插入或更新数据</td>
+<td>delete</td>
+<td>删除指定行或列的数据</td>
+</tr>
+<tr>
+<td>scan</td>
+<td>扫描表并返回表的数据</td>
+<td>deleteall</td>
+<td>删除整个行或列的数据</td>
+</tr>
+<tr>
+<td>describe</td>
+<td>查看表的结构</td>
+<td>truncate</td>
+<td>删除整个表中的数据，不删除表结构</td>
+</tr>
+<tr>
+<td>get</td>
+<td>获取指定行或列的数据</td>
+<td>drop</td>
+<td>删除整个表，数据和结构都删除</td>
+</tr>
+</tbody></table>
+<p>HBase Shell 操作</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">hbase-2.4.2/bin/hbase shell</span><br><span class="line"></span><br><span class="line"><span class="comment"># 操作 HBase 数据库</span></span><br><span class="line"><span class="comment"># 创建表，指定列族名</span></span><br><span class="line">create <span class="string">'table_name'</span>, <span class="string">'colum_family'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看数据库中的数据表</span></span><br><span class="line">list</span><br><span class="line"></span><br><span class="line"><span class="comment"># 插入数据</span></span><br><span class="line">put <span class="string">'table_name'</span>,<span class="string">'row1'</span>, <span class="string">'colum_family: column_name'</span>, <span class="string">'value'</span></span><br><span class="line"><span class="comment"># put 'student','1001', 'info:name', 'zhangsan'</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#　扫描表所有数据</span></span><br><span class="line">scan <span class="string">'table_name'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看表结构</span></span><br><span class="line"><span class="comment"># NAME: 列族名</span></span><br><span class="line"><span class="comment"># BLOOMFILTER: 列族级别的类型</span></span><br><span class="line"><span class="comment"># VERSIONS: 版本数</span></span><br><span class="line"><span class="comment"># KEEP_DELETED_CELLS: 设置被删除的数据，在基于时间的历史数据查询中是否依然可见</span></span><br><span class="line"><span class="comment"># IN_MEMORY: 是否存入内存</span></span><br><span class="line"><span class="comment"># DATA_BLOCK_ENCODING: 数据块算法</span></span><br><span class="line"><span class="comment"># MIN_VERSIONS: 最小版本数</span></span><br><span class="line"><span class="comment"># BLOCKCACHE: 是否设置读缓存</span></span><br><span class="line"><span class="comment"># REPLICATION: 设置缓存</span></span><br><span class="line"><span class="comment"># TLL：版本存活时间</span></span><br><span class="line">describe <span class="string">'table_name'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新数据</span></span><br><span class="line">put <span class="string">'table_name'</span>, <span class="string">'row '</span>, <span class="string">'column_family: column_name'</span>, <span class="string">'new_value'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取指定字段操作</span></span><br><span class="line">get <span class="string">'table_name'</span>, <span class="string">'row1'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 统计操作</span></span><br><span class="line">count <span class="string">'table_name'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除操作</span></span><br><span class="line">delete <span class="string">'table_name'</span>, <span class="string">'row'</span>, <span class="string">'column_name'</span>, <span class="string">'timestamp'</span></span><br><span class="line"><span class="comment"># delete 'student','1001','info:sex'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除指定行键的所有数据，类似MySQL删除一行数据</span></span><br><span class="line">deleteall <span class="string">'table_name'</span>,<span class="string">'row'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除表中所有数据</span></span><br><span class="line">truncate <span class="string">'table_name'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除表，先 disable 禁用表，后删除</span></span><br><span class="line"><span class="built_in">disable</span> <span class="string">'table_name'</span></span><br><span class="line">drop <span class="string">'table_name'</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>HBase 的 Java API 操作</p>
+<p>常见的 Java API操作</p>
+<table>
+<thead>
+<tr>
+<th align="center">类或接口名称</th>
+<th>相关说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Admin</td>
+<td>类，建立客户端和 HBase 数据库的连接</td>
+</tr>
+<tr>
+<td align="center">HBaseConfiguration</td>
+<td>类，将 HBase 配置添加到配置文件中</td>
+</tr>
+<tr>
+<td align="center">HTableDescriptor</td>
+<td>接口，用于描述表的信息</td>
+</tr>
+<tr>
+<td align="center">HColumnDescriptor</td>
+<td>类，用于描述列族的信息</td>
+</tr>
+<tr>
+<td align="center">Table</td>
+<td>接口，实现 HBase 表的通信</td>
+</tr>
+<tr>
+<td align="center">Put</td>
+<td>类，插入数据操作</td>
+</tr>
+<tr>
+<td align="center">Get</td>
+<td>类，查询单条记录</td>
+</tr>
+<tr>
+<td align="center">Delete</td>
+<td>类，删除数据</td>
+</tr>
+<tr>
+<td align="center">Scan</td>
+<td>类，查询所有记录</td>
+</tr>
+<tr>
+<td align="center">Result</td>
+<td>类，查询返回单条记录结果</td>
+</tr>
+</tbody></table>
+<ol>
+<li>导入 Maven 依赖</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- ++++++++++++++++ HBase 学习 ++++++++++++++++ --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 单元测试 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.12<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- HBase 客户端 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.hbase<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hbase-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.4.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- HBase 核心依赖 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.hbase<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hbase-common<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.4.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>Java 代码<ol>
+<li>连接集群，创建 HBase 表</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.apache.hadoop.conf.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.hbase.*;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.hbase.client.*;</span><br><span class="line"><span class="keyword">import</span> org.junit.Before;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"><span class="comment">// <span class="doctag">TODO:</span> HBase API 操作</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HBaseTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化对象</span></span><br><span class="line">    <span class="keyword">private</span> Configuration conf = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化连接</span></span><br><span class="line">    <span class="keyword">private</span> Connection conn = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Before</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">        <span class="comment">// 获取 Conf 对象</span></span><br><span class="line">        conf = HBaseConfiguration.create();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 拿到 hbase 所经过的 Zookeeper 集群地址即可</span></span><br><span class="line">        <span class="comment">// 因为HBase 客户端读写数据不用经过 HMaster</span></span><br><span class="line">        conf.set(<span class="string">"hbase.zookeeper.quorum"</span>, <span class="string">"hadoop01:2181,hadoop02:2181,hadoop03:2181"</span>);</span><br><span class="line">        <span class="comment">// 获取连接</span></span><br><span class="line">        conn = ConnectionFactory.createConnection(conf);</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"GET CONN:"</span> + conn);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">createTable</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">        <span class="comment">// 获取表管理器对象</span></span><br><span class="line">        Admin admin = conn.getAdmin();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建表的描述对象, 指定表名</span></span><br><span class="line">        TableDescriptorBuilder t_user_table = TableDescriptorBuilder.newBuilder(TableName.valueOf(<span class="string">"t_user_info"</span>));</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建一个列族描述对象</span></span><br><span class="line">        <span class="comment">// new HColumnDescriptor() HBase 已被废弃</span></span><br><span class="line">        ColumnFamilyDescriptor cfd1 = ColumnFamilyDescriptorBuilder.newBuilder(<span class="string">"base_info"</span>.getBytes())</span><br><span class="line">                .build();</span><br><span class="line">        ColumnFamilyDescriptor cfd2 = ColumnFamilyDescriptorBuilder.newBuilder(<span class="string">"extra_info"</span>.getBytes())</span><br><span class="line">                <span class="comment">// 设置版本 1-3</span></span><br><span class="line">                .setMinVersions(<span class="number">1</span>)</span><br><span class="line">                .setMaxVersions(<span class="number">3</span>)</span><br><span class="line">                .build();</span><br><span class="line">        </span><br><span class="line">        ArrayList&lt;ColumnFamilyDescriptor&gt; cfds = <span class="keyword">new</span> ArrayList&lt;ColumnFamilyDescriptor&gt;();</span><br><span class="line">        cfds.add(cfd1);</span><br><span class="line">        cfds.add(cfd2);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 将列族描述对象添加到表描述对象中</span></span><br><span class="line">        t_user_table.setColumnFamilies(cfds);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 用表管理器创建表</span></span><br><span class="line">        admin.createTable(t_user_table.build());</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 释放资源</span></span><br><span class="line">        admin.close();</span><br><span class="line">        conn.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>插入数据</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testPut</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">    <span class="comment">// 创建 table 对象，通过 table 对象来添加数据</span></span><br><span class="line">    Table table = conn.getTable(TableName.valueOf(<span class="string">"t_user_info"</span>));</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 创建一个集合，用于存放 Put 对象</span></span><br><span class="line">    ArrayList&lt;Put&gt; puts = <span class="keyword">new</span> ArrayList&lt;Put&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 构建 put 对象（KV 形式），并指定行键</span></span><br><span class="line">    Put put01 = <span class="keyword">new</span> Put(Bytes.toBytes(<span class="string">"user001"</span>));</span><br><span class="line">    put01.addColumn(Bytes.toBytes(<span class="string">"base_info"</span>), Bytes.toBytes(<span class="string">"username"</span>), Bytes.toBytes(<span class="string">"zhangsan"</span>));</span><br><span class="line">    put01.addColumn(Bytes.toBytes(<span class="string">"base_info"</span>), Bytes.toBytes(<span class="string">"password"</span>), Bytes.toBytes(<span class="string">"12345678"</span>));</span><br><span class="line"></span><br><span class="line">    Put put02 = <span class="keyword">new</span> Put(Bytes.toBytes(<span class="string">"user002"</span>));</span><br><span class="line">    put02.addColumn(Bytes.toBytes(<span class="string">"base_info"</span>), Bytes.toBytes(<span class="string">"username"</span>), Bytes.toBytes(<span class="string">"lisi"</span>));</span><br><span class="line">    put02.addColumn(Bytes.toBytes(<span class="string">"base_info"</span>), Bytes.toBytes(<span class="string">"password"</span>), Bytes.toBytes(<span class="string">"1234567"</span>));</span><br><span class="line"></span><br><span class="line">    puts.add(put01);</span><br><span class="line">    puts.add(put02);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 提交所有的插入记录</span></span><br><span class="line">    table.put(puts);</span><br><span class="line"></span><br><span class="line">    table.close();</span><br><span class="line">    conn.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>查看指定字段的数据</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testGet</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">    <span class="comment">// 获取一个 table 对象</span></span><br><span class="line">    Table table = conn.getTable(TableName.valueOf(<span class="string">"t_user_info"</span>));</span><br><span class="line">    <span class="comment">// 创建 get 查询承诺书对象，指定要获取的是哪一行</span></span><br><span class="line">    Get get = <span class="keyword">new</span> Get(<span class="string">"user001"</span>.getBytes());</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 返回查询结果的数据</span></span><br><span class="line">    Result result = table.get(get);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取结果所有的 cell</span></span><br><span class="line">    List&lt;Cell&gt; cells = result.listCells();</span><br><span class="line">    <span class="comment">// 遍历所有的 cell</span></span><br><span class="line">    <span class="keyword">for</span>(Cell c : cells) &#123;</span><br><span class="line">        <span class="comment">// 获取行键</span></span><br><span class="line">        System.out.println(<span class="string">"行："</span> + Bytes.toString(CellUtil.cloneRow(c)));</span><br><span class="line">        <span class="comment">// 得到列族</span></span><br><span class="line">        System.out.println(<span class="string">"列族："</span> + Bytes.toString(CellUtil.cloneFamily(c)));</span><br><span class="line">        System.out.println(<span class="string">"："</span> + Bytes.toString(CellUtil.cloneQualifier(c)));</span><br><span class="line">        System.out.println(<span class="string">"值："</span> + Bytes.toString(CellUtil.cloneValue(c)));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 关闭</span></span><br><span class="line">    table.close();</span><br><span class="line">    conn.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>扫描数据</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testScan</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    <span class="comment">// 获取 table 对象</span></span><br><span class="line">    Table table = conn.getTable(TableName.valueOf(<span class="string">"t_user_info"</span>));</span><br><span class="line">    <span class="comment">// 创建 Scan 对象</span></span><br><span class="line">    Scan scan = <span class="keyword">new</span> Scan();</span><br><span class="line">    <span class="comment">// 获取查询结果</span></span><br><span class="line">    ResultScanner rs = table.getScanner(scan);</span><br><span class="line">    <span class="comment">// 获取查询的数据</span></span><br><span class="line">    Iterator&lt;Result&gt; iterator = rs.iterator();</span><br><span class="line">    <span class="keyword">while</span> (iterator.hasNext())&#123;</span><br><span class="line">        <span class="comment">// 获取当前每一行数据</span></span><br><span class="line">        Result result = iterator.next();</span><br><span class="line">        <span class="comment">// 获取当前每一行的 cell 对象</span></span><br><span class="line">        List&lt;Cell&gt; cells = result.listCells();</span><br><span class="line">        <span class="keyword">for</span> (Cell cell : cells)&#123;</span><br><span class="line">            <span class="comment">// 获取行键</span></span><br><span class="line">            <span class="keyword">byte</span>[] rowArray = cell.getRowArray();</span><br><span class="line">            <span class="keyword">byte</span>[] familyArray = cell.getFamilyArray();</span><br><span class="line">            <span class="keyword">byte</span>[] qualifierArray = cell.getQualifierArray();</span><br><span class="line">            <span class="keyword">byte</span>[] valueArray = cell.getValueArray();</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 获取行键</span></span><br><span class="line">            System.out.println(<span class="string">"行："</span> + <span class="keyword">new</span> String(rowArray, cell.getRowOffset(), cell.getRowLength()));</span><br><span class="line">            System.out.println(<span class="string">"列族：："</span> + <span class="keyword">new</span> String(familyArray, cell.getRowOffset(), cell.getRowLength()));</span><br><span class="line">            System.out.println(<span class="string">"："</span> + <span class="keyword">new</span> String(qualifierArray, cell.getRowOffset(), cell.getRowLength()));</span><br><span class="line">            System.out.println(<span class="string">"值："</span> + <span class="keyword">new</span> String(valueArray, cell.getRowOffset(), cell.getRowLength()));</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">"--------------------------"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    table.close();</span><br><span class="line">    conn.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>删除表</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testDrop</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    <span class="comment">// 获取一个表的管理器</span></span><br><span class="line">    Admin admin = conn.getAdmin();</span><br><span class="line">    <span class="comment">// 删除表是先需要 disable</span></span><br><span class="line">    admin.disableTable(TableName.valueOf(<span class="string">"t_user_info"</span>));</span><br><span class="line">    admin.deleteTable(TableName.valueOf(<span class="string">"t_user_info"</span>));</span><br><span class="line"></span><br><span class="line">    admin.close();</span><br><span class="line">    conn.close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="HBase-原理"><a href="#HBase-原理" class="headerlink" title="HBase 原理"></a>HBase 原理</h2><ol>
+<li><p>架构</p>
+<p>HBase 构建在 HDFS 之上， HDFS 为此提供了高可用的底层存储支持， Hadoop MapReduce 为此提供了高性能的计算能力，Zookeeper 为 HBase 提供了稳定的服务和容错机制。</p>
+<ol>
+<li>Client: 通过 RPC 协议与 HBase 通信</li>
+<li>Zookeeper: 分布式协调服务，用作监控 HRegionServer 状态，将 HRegionServer 上线情况实时通知给 HMaster，确保集群只有一个 HMaster 在工作</li>
+<li>HMaster： HBase 的主节点，协调、监控 HRegionServer 以及 平衡 HRegionServer 之间的负载。 HMaster 还负责为 HRegionServer 分配 HRegion</li>
+<li>HRegionServer: HBase 的从节点，包括了多个 HRegion，用于响应用户 I/O 请求，向 HDFS 写入数据</li>
+<li>HRegion：HBase 表的分片，每个分片报错的是表中某段连续的数据。</li>
+<li>Store：HRegion 包含一个或多个 Store，每个 Store 都用于管理一个 Region 上的一个列族</li>
+<li>MemStore: 内存级缓存，MemStore 存放在 Store 中，用于保存修改的数据（K-V 形式）当存储数据达到一个阀值（默认 128M）时，数据就会被 flush 操作，将数据写入 StoreFile 文件，flush 操作由专门的线程负责。</li>
+<li>StoreFile: MemStore 数据写入到文件后存储的就是 StoreFile,StoreFile 底层是以 HFile 的格式保存在 HDFS 上。</li>
+<li>HFile： HBase 中键值对类型的数据均以 HFile 文件格式进行存储</li>
+<li>HLog：预写日志文件，负责记录 HBase 的修改。当 HBase 读写数据是，数据不是直接写进磁盘，而是在内存中保留一段时间。如果数据写入预写日志文件中，然后再写入内存中，一旦系统故障，可以通过日志文件恢复数据。</li>
+</ol>
+</li>
+<li><p>物理存储</p>
+<ol>
+<li>按照行键 Row Key 的字典序进行排列，切分多个 HRegion 存储。</li>
+<li>每个 Region 存储的数据是有限的，达到一个阀值（128MB）是会被等切分成两个新的 Region 。</li>
+<li>一个 HRegionServer上可以存储多个 Region 但是每个 Region只能分布到一个 HRegionServer 上</li>
+<li>MemStore 中存储的是用户写入的数据，达到阀值时，会以 HFile 存储到 HDFS 上。</li>
+</ol>
+</li>
+<li><p>寻址机制</p>
+<p>Zookeeper 存储的是 ROOT 表的数据，而 ROOT 表存储的是 META 表的 Regin 信息，也就是所有 RegionServer 的地址。</p>
+<ol>
+<li>Client 访问 Zookeeper 请求行键 RK001 数据所在的 RegionServer 地址</li>
+<li>Zookeeper 从 ROOT 表中查询所有表的 META 信息</li>
+<li>META 表将具体存储行键RK001 数据的 ReginServer 地址返回给 Client，相当于 Client从 Zookeeper中 META 表中查询到 ReginServer 的地址。</li>
+<li>Client 获取到地址后，直接向RegionServer 发送查询行键为 RK001 的这条数据的请求，RegionServer 收到请求就会查询行键 RK001 的 Regino</li>
+<li>RegionServer 将行键为 RK001 的数据返回给 Client</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="HBase-和-Hive-整合"><a href="#HBase-和-Hive-整合" class="headerlink" title="HBase 和 Hive 整合"></a>HBase 和 Hive 整合</h2><p>HBase 不支持 SQL 语法，因此 操作和计算 HBase 分布式数据库时非常不方便，效率也偏低。通过 Hive 数据仓库操作 HBase 分布式数据库中的数据，可以满足业务需求。</p>
+<ol>
+<li><p>环境搭建 vi /etc/profile</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> HBASE_HOME=/<span class="built_in">export</span>/servers/hbase-2.4.2</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$HBASE_HOME</span>/bin:</span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> HIVE_HOME=/<span class="built_in">export</span>/servers/hive-3.1.2</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:<span class="variable">$HIVE_HOME</span>/bin:</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>导入依赖</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /<span class="built_in">export</span>/servers/hbase-2.4.2</span><br><span class="line"><span class="comment"># HBase 基本包</span></span><br><span class="line">cp -r lib/hbase-common-2.4.2.jar \</span><br><span class="line"><span class="comment"># HBase 服务端</span></span><br><span class="line">lib/hbase-server-2.4.2.jar \ </span><br><span class="line"><span class="comment"># HBase 客户端</span></span><br><span class="line">lib/hbase-client-2.4.2.jar \</span><br><span class="line"><span class="comment"># HBase 通信</span></span><br><span class="line">lib/hbase-protocol-2.4.2.jar \</span><br><span class="line"><span class="comment"># 整合其他框架做测试</span></span><br><span class="line">lib/hbase-it-2.4.2 \</span><br><span class="line"><span class="comment"># 兼容 Hadoop 其他版本</span></span><br><span class="line">lib/hbase-hadoop2-compat-2.4.2.jar \</span><br><span class="line">lib/hbase-hadoop-compat-2.4.2.jar \</span><br><span class="line">/<span class="built_in">export</span>/servers/hive-3.1.2/lib/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改配置文件 __vi hive-3.1.2/conf/hive-site.xml __</p>
+</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 指定 zookeeper 集群地址 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.zookeeper.quorum<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>hadoop01,hadoop02,hadoop03<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 指定 zookeeper 端口 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>hive.zookeeper.client.port<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>2181<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>启动相关服务(Zookeeper Hadoop MySQL Hive HBase)</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动 zookeeper 集群，脚本</span></span><br><span class="line">start_all_zk.sh</span><br><span class="line"><span class="comment"># Hadoop</span></span><br><span class="line">start-all.sh</span><br><span class="line"><span class="comment"># Mysql</span></span><br><span class="line">service mysqld start</span><br><span class="line"><span class="comment"># Hive</span></span><br><span class="line">bin/hive</span><br><span class="line"><span class="comment"># HBase</span></span><br><span class="line">start-hbase.sh</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><p>创建表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE hive_hbase_emp_table(</span><br><span class="line">empno int,</span><br><span class="line">ename string,</span><br><span class="line">job string,</span><br><span class="line">mgr int,</span><br><span class="line">hiredate string,</span><br><span class="line">sal double,</span><br><span class="line">comm double,</span><br><span class="line">deptno int)</span><br><span class="line">STORED BY &#39;org.apache.hadoop.hive.hbase.HBaseStorageHandler&#39;</span><br><span class="line">WITH SERDEPROPERTIES (&quot;hbase.columns.mapping&quot; &#x3D; &quot;:key,info:ename,info:job,info:mgr,info:hiredate,info:sal,info:comm,info:deptno&quot;)</span><br><span class="line">TBLPROPERTIES (&quot;hbase.table.name&quot; &#x3D; &quot;hbase_emp_table&quot;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建 hive 临时中间表</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE emp (</span><br><span class="line">empno int,</span><br><span class="line">ename string,</span><br><span class="line">job string,</span><br><span class="line">mgr int,</span><br><span class="line">hiredate string,</span><br><span class="line">sal double,</span><br><span class="line">comm double,</span><br><span class="line">deptno int)</span><br><span class="line">row format delimited fields terminated by <span class="string">'\t'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看</span></span><br><span class="line">show tables;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建文件 <strong>vi /export/data/emp.txt</strong></p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">7369    SMITH   CLERK   7902    1980-12-11      800.0   20</span><br><span class="line">7379    LIWSI   CLERK   7902    1980-12-11      800.0   20</span><br><span class="line">7383    ZHANGSAN        SALESMAN        7602    1980-12-11      1100.0  20</span><br><span class="line">7384    QQXIU   SALEMAN 7602    1988-12-15      1000.0  30</span><br><span class="line">7386    FORTHEW MANGER  1202    1980-02-20      20000.0 20</span><br><span class="line">7409    ABCDE   MANGER  1202    1976-03-03      20000.0 20</span><br><span class="line">7419    LIBIBI  CLERK   7902    1945-04-23      800.0   20</span><br><span class="line">7452    BILIBIL ANALYST 7782    1923-11-26      2000.0  20</span><br><span class="line">7529    BEIKLI  CLERK   7902    1998-11-12      800.0   20</span><br><span class="line">7534    HEKLILK CLERK   7902    1967-08-15      800.0   20</span><br><span class="line">7603    MIIIUK  CLERK   7902    1980-02-15      800.0   20</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>插入数据</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 插入到临时表</span></span><br><span class="line">load data inpath <span class="string">'/export/data/emp.txt'</span> into table emp;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 临时表导入到 hive_hbase_emp_table 表</span></span><br><span class="line">insert into table hive_hbase_emp_table select * from emp;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看整合情况</span></span><br><span class="line">hive&gt; select * from hive_hbase_emp_table;</span><br><span class="line">hbase&gt; scan <span class="string">'hbase_emp_table'</span></span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+<blockquote>
+<p>发布于 2021-05-23 23:24:11，修改于 2021-07-18 11:37</p>
+</blockquote>
+
+    
+
+    
+
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          MISAKIGA
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="https:/misakiga.github.io/2021/07/18/big-data/Spark/" title="Spark 大数据" target="_blank">https:/misakiga.github.io/2021/07/18/big-data/Spark/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -259,526 +930,107 @@
 		</ul>
 	</div>
 
-          
+    
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://misakiga.github.io/2021/07/18/big-data/Spark/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/06/29/big-data/SparkStreaming/" class="archive-article-date">
-        <time datetime="2021-06-28T19:17:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-29</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2021/06/29/big-data/SparkStreaming/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spark Streaming 实时计算框架</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/06/29/big-data/SparkStreaming/" target="_blank">Spark Streaming 实时计算框架</a>
-  
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Spark</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">计算引擎</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Spark Streaming</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/06/23/mysql/mysql_sql/" class="archive-article-date">
-        <time datetime="2021-06-23T15:16:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-23</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/06/23/mysql/mysql_sql/" target="_blank">MySQL 与 SQL 优化</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">MySQL</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SQL 优化</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/06/22/microservice/distribute_lock/" class="archive-article-date">
-        <time datetime="2021-06-22T04:36:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-22</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/06/22/microservice/distribute_lock/" target="_blank">分布式锁</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">分布式锁</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Zookeeper</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/06/21/microservice/Distributed_Scheduler/" class="archive-article-date">
-        <time datetime="2021-06-20T21:26:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-21</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/06/21/microservice/Distributed_Scheduler/" target="_blank">调度框架</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">分布式调度框架</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Quartz</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">cron</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">XXL-JOB</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/06/19/notes/settingcomputer/" class="archive-article-date">
-        <time datetime="2021-06-19T07:05:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-19</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/06/19/notes/settingcomputer/" target="_blank">搭建电脑环境</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">配置环境</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/06/15/big-data/Kafka/" class="archive-article-date">
-        <time datetime="2021-06-15T13:05:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-15</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/06/15/big-data/Kafka/" target="_blank">Kafka 分布式订阅消息系统</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Kafka</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">订阅消息系统</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Kafka Streams</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/06/01/notes/%E8%A7%A3%E5%86%B3python%E6%89%93%E5%8C%85%E6%96%87%E4%BB%B6%E8%BF%87%E5%A4%A7%E9%97%AE%E9%A2%98/" class="archive-article-date">
-        <time datetime="2021-06-01T08:20:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-01</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/06/01/notes/%E8%A7%A3%E5%86%B3python%E6%89%93%E5%8C%85%E6%96%87%E4%BB%B6%E8%BF%87%E5%A4%A7%E9%97%AE%E9%A2%98/" target="_blank">解决 pyinstaller 打包文件过大问题</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">docker</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">pyinstaller</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">py flie to exe</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/05/28/big-data/HBase/" class="archive-article-date">
-        <time datetime="2021-05-28T04:25:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-28</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/05/28/big-data/HBase/" target="_blank">HBase 分布式数据库</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HBase</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">分布式数据库</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">NoSQL</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hive</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Hadoop</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Spark</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2021/05/23/big-data/github_spark%E9%9B%86%E7%BE%A4%E5%AE%89%E8%A3%85/" class="archive-article-date">
-        <time datetime="2021-05-23T00:11:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-23</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2021/05/23/big-data/github_spark%E9%9B%86%E7%BE%A4%E5%AE%89%E8%A3%85/" target="_blank">Spark 集群安装</a>
-  
-    </h1>
-  
-
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">大数据</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Spark</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Docker</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/tags/%E9%9A%8F%E7%AC%94/page/2/">2</a><a class="page-number" href="/tags/%E9%9A%8F%E7%AC%94/page/3/">3</a><a class="page-number" href="/tags/%E9%9A%8F%E7%AC%94/page/4/">4</a><a class="extend next" rel="next" href="/tags/%E9%9A%8F%E7%AC%94/page/2/">Next &amp;raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -819,9 +1071,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
