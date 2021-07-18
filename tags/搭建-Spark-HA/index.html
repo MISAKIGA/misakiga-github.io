@@ -6,19 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://misakiga.github.io">
-  <title>big-data/搭建SparkHA集群 | MSGA-BLOG</title>
+  <title>Tag: 搭建 Spark HA | MSGA-BLOG</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="title:　搭建 Spark HA 高可用集群date: 2021-05-19 8:22:18tags:   随笔 搭建 Spark HA  HDFS py flie to exe   搭建 Spark HA 高可用集群下载Spark http:&#x2F;&#x2F;spark.apache.org&#x2F;downloads.html 解压Spark">
-<meta property="og:type" content="article">
-<meta property="og:title" content="big-data&#x2F;搭建SparkHA集群">
-<meta property="og:url" content="https://misakiga.github.io/2021/06/19/big-data/%E6%90%AD%E5%BB%BASparkHA%E9%9B%86%E7%BE%A4/index.html">
+  <meta name="description" content="ius">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MSGA-BLOG">
+<meta property="og:url" content="https://misakiga.github.io/tags/%E6%90%AD%E5%BB%BA-Spark-HA/index.html">
 <meta property="og:site_name" content="MSGA-BLOG">
-<meta property="og:description" content="title:　搭建 Spark HA 高可用集群date: 2021-05-19 8:22:18tags:   随笔 搭建 Spark HA  HDFS py flie to exe   搭建 Spark HA 高可用集群下载Spark http:&#x2F;&#x2F;spark.apache.org&#x2F;downloads.html 解压Spark">
+<meta property="og:description" content="ius">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-06-19T05:04:51.847Z">
-<meta property="article:modified_time" content="2021-06-19T17:07:01.251Z">
 <meta property="article:author" content="MISAKIGA">
 <meta name="twitter:card" content="summary">
   
@@ -203,292 +201,73 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-big-data/搭建SparkHA集群" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
+            
+  
+  
     
-      <header class="article-header">
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2021" class="archive-year">2021</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	
+<a href="/2021/05/19/big-data/%E6%90%AD%E5%BB%BASparkHA%E9%9B%86%E7%BE%A4/" class="archive-article-date">
+        <time datetime="2021-05-19T00:22:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-19</time>
+</a>
+
+        </div>
+    	 
   
+    <h1 itemprop="name">
+	
+	  <a class="archive-article-title" href="/2021/05/19/big-data/%E6%90%AD%E5%BB%BASparkHA%E9%9B%86%E7%BE%A4/" target="_blank">搭建 Spark HA 集群</a>
   
-    <h1 class="article-title" itemprop="name">
-      big-data/搭建SparkHA集群
     </h1>
   
 
 
-  
-  
-        
-        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
-              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
-        </span>
-
-<a href="/2021/06/19/big-data/%E6%90%AD%E5%BB%BASparkHA%E9%9B%86%E7%BE%A4/" class="archive-article-date">
-        <time datetime="2021-06-19T05:04:51.847Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-19</time>
-</a>
-
-  
-  
-    
-<div style="margin-top:10px;">
-  <span class="post-time">
-    <span class="post-meta-item-icon">
-      <!-- fonts.scss -->
-      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
-      <i class="icon-statistics"></i>
-      <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">731字</span>
-    </span>
-  </span>
-
-  <span class="post-time">
-    &nbsp; | &nbsp;
-    <span class="post-meta-item-icon">
-      <i class="icon-book icon"></i>
-      <span class="post-meta-item-text"> 阅读时长≈</span>
-      <span class="post-count">3分</span>
-    </span>
-  </span>
-</div>
-
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <hr>
-<p>title:　搭建 Spark HA 高可用集群<br>date: 2021-05-19 8:22:18<br>tags: </p>
-<ul>
-<li>随笔</li>
-<li>搭建 Spark HA </li>
-<li>HDFS</li>
-<li>py flie to exe</li>
-</ul>
-<hr>
-<h2 id="搭建-Spark-HA-高可用集群"><a href="#搭建-Spark-HA-高可用集群" class="headerlink" title="搭建 Spark HA 高可用集群"></a>搭建 Spark HA 高可用集群</h2><p>下载Spark</p>
-<p><code>http://spark.apache.org/downloads.html</code></p>
-<p>解压Spark</p>
-<a id="more"></a>
-
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo tar -zxvf spark-3.1.1-bin-hadoop2.7.tgz -C /<span class="built_in">export</span>/servers/ &amp;&amp; <span class="built_in">cd</span> /<span class="built_in">export</span>/servers/ </span><br><span class="line"></span><br><span class="line">sudo mv spark-3.1.1-bin-hadoop2.7/ spark</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> spark/config &amp;&amp; cp spark-env.sh.template spark-env.sh</span><br></pre></td></tr></table></figure>
-
-<p>添加到spark-env.sh</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置JAVA环境变量</span></span><br><span class="line"><span class="built_in">export</span> JAVA_HOME=/<span class="built_in">export</span>/servers/jdk</span><br><span class="line"><span class="comment"># 指定Matser的IP</span></span><br><span class="line"><span class="built_in">export</span> SPARK_MASTER_HOST=hadoop01</span><br><span class="line"><span class="comment"># 指定Master的端口</span></span><br><span class="line"><span class="built_in">export</span> SPARK_MASTER_PORT=7077</span><br></pre></td></tr></table></figure>
-<p>添加 works</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">hadoop02</span></span><br><span class="line"><span class="string">hadoop03</span></span><br></pre></td></tr></table></figure>
-
-<p>分发到另外两台电脑上</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">scp -r spark hadoop02:/<span class="built_in">export</span>/servers/spark</span><br><span class="line">scp -r spark hadoop03:/<span class="built_in">export</span>/servers/spark</span><br></pre></td></tr></table></figure>
-
-<p>启动</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sbin/start-all.sh</span><br></pre></td></tr></table></figure>
-
-<p>zookeeper 高可用搭建</p>
-<p>zoo.cfg</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">tickTime&#x3D;2000</span><br><span class="line">initLimit&#x3D;10</span><br><span class="line">syncLimit&#x3D;5</span><br><span class="line">dataDir&#x3D;&#x2F;export&#x2F;data&#x2F;zookeeper&#x2F;zkdata</span><br><span class="line">clientPort&#x3D;2181</span><br><span class="line">server.1&#x3D;IP1:2888:3888</span><br><span class="line">server.2&#x3D;IP2:2888:3888</span><br><span class="line">server.3&#x3D;IP3:2888:3888</span><br></pre></td></tr></table></figure>
-
-
-
-<p>修改spark-env.sh</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> SPARK_MASTER_PORT=7077</span><br><span class="line"><span class="built_in">export</span> SPARK_DAEMON_JAVA_OPTS=<span class="string">"-Dspark.deploy.recoveryMode=ZOOKEEPER</span></span><br><span class="line"><span class="string">-Dspark.deploy.zookeeper.url=IP1:2181,IP2:2181,IP3:2181</span></span><br><span class="line"><span class="string">-Dspark.deploy.zookeeper.dir=/spark"</span></span><br></pre></td></tr></table></figure>
-
-<p>将spark-env覆盖其他电脑</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">scp -r spark hadoop02:/<span class="built_in">export</span>/servers/spark</span><br><span class="line">scp -r spark hadoop03:/<span class="built_in">export</span>/servers/spark</span><br><span class="line"></span><br><span class="line">/<span class="built_in">export</span>/servers/spark/sbin/start-all.sh </span><br><span class="line"></span><br><span class="line"><span class="comment"># 到备用电脑启动备用master</span></span><br><span class="line">/<span class="built_in">export</span>/servers/spark/sbin/start-master.sh</span><br></pre></td></tr></table></figure>
-
-<p>浏览器查看spark: <code>hadoop01:8080</code></p>
-<h3 id="一键启动所有Zookeeper集群"><a href="#一键启动所有Zookeeper集群" class="headerlink" title="一键启动所有Zookeeper集群"></a>一键启动所有Zookeeper集群</h3><p>vi start_all_zk.sh</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#! /bin/sh</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> host <span class="keyword">in</span> hadoop01 hadoop02 hadoop03</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">    ssh <span class="variable">$host</span> <span class="string">"source /etc/profile; zkServer.sh start"</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"<span class="variable">$host</span> zk is runing"</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
-
-
-<p>体验第一个Spark程序</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">bin/spark-submit --class org.apache.spark.examples.SparkPi \</span><br><span class="line">--master spark://hadoop01:7077,spark://hadoop03:7077,spark://hadoop03:7077 \</span><br><span class="line">--executor-memory 1G  \</span><br><span class="line">--total-executor-cores 1 \</span><br><span class="line">examples/jars/spark-examples_2.12-3.1.1.jar \</span><br><span class="line">10</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">bin/spark-submit --class org.apache.spark.examples.SparkPi \</span><br><span class="line">--master spark://hadoop01:7077 \</span><br><span class="line">--num-executors 10 \</span><br><span class="line">--driver-memory 2g \</span><br><span class="line">--executor-memory 1g \</span><br><span class="line">--executor-cores 2 \</span><br><span class="line">--queue thequeue \</span><br><span class="line">examples/jars/spark-examples*.jar \</span><br><span class="line">10</span><br></pre></td></tr></table></figure>
-
-
-<p>##　启动spark-shell</p>
-<p>用户可以使用scala编写spark程序，输入一条语句立即执行结果，即 REPL(Read-Eval-Pring Loop 交互式解释器)</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/spark-shell --master &lt;master-url&gt;</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>参数名称</th>
-<th>功能描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>local</td>
-<td>使用一个Worker线程本地化运行Spark</td>
-</tr>
-<tr>
-<td>local[*]</td>
-<td>本地运行Spark,其工作线程数量与本机CPU逻辑核心数量相同</td>
-</tr>
-<tr>
-<td>local[N]</td>
-<td>使用N个Worker线程本地化运行Spark（根据运行机器的CPU核数设定）</td>
-</tr>
-<tr>
-<td>spark://host:port</td>
-<td>在standalone模式下，链接到指定的Spark集群，默认端口7077</td>
-</tr>
-<tr>
-<td>yarn-client</td>
-<td>以客户端模式链接Yarn集群，集群的位置可以在 <strong>HADOOP_CONF_DIR</strong> 环境变量中配置</td>
-</tr>
-<tr>
-<td>yarn-cluster</td>
-<td>以集群模式连接Yarn集群，集群的位置可以在 <strong>HADOOP_CONF_DIR</strong> 环境变量中配置</td>
-</tr>
-<tr>
-<td>mesos://host:port</td>
-<td>连接到指定的Mesos集群，默认端口5050</td>
-</tr>
-</tbody></table>
-<h2 id="运行spark-shell读取HDFS文件"><a href="#运行spark-shell读取HDFS文件" class="headerlink" title="运行spark-shell读取HDFS文件"></a>运行spark-shell读取HDFS文件</h2><p>创建文件 /spark/test/words.txt </p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /spark/<span class="built_in">test</span>/ vi /spark/<span class="built_in">test</span>/words.txt </span><br><span class="line"></span><br><span class="line"><span class="comment"># hello hadoop</span></span><br><span class="line"><span class="comment"># hello spark</span></span><br><span class="line"><span class="comment"># helll word</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="整合Spark与HDFS"><a href="#整合Spark与HDFS" class="headerlink" title="整合Spark与HDFS"></a>整合Spark与HDFS</h2><p>修改 <code>Spark-env.sh</code>,添加 <strong>HADOOP_CONF_DIR</strong> 配置参数。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 指定HDFS配置文件目录</span></span><br><span class="line"><span class="built_in">export</span> HADOOP_CONF_DIR=/<span class="built_in">export</span>/servers/hadoop-2.10.1/etc/hadoop</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动 hadoop 和 spark 集群服务，重新启动服务。</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动 Spark-shell 交互式界面</span></span><br><span class="line">bin/spark-shell --master <span class="built_in">local</span>[2]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 上传到HDFS</span></span><br><span class="line">hadoop fs -mkdir -p /spark/<span class="built_in">test</span></span><br><span class="line">hadoop fs -put /spark/<span class="built_in">test</span>/words.txt /spark/<span class="built_in">test</span></span><br><span class="line"></span><br><span class="line">scala&gt; sc.textFile(<span class="string">"/spark/test/words.txt"</span>).</span><br><span class="line">flatMap(_.split(<span class="string">" "</span>)).map((_,1)).reduceByKey(_+_).collect</span><br></pre></td></tr></table></figure>
-    
-
-    
-
-    
-    <div class="declare"> 
-      <ul class="post-copyright">
-        <li>
-          <strong>本文作者：</strong>
-          MISAKIGA
-        </li>
-        <li>
-          <strong>本文链接：</strong>
-          <a href="https:/misakiga.github.io/2021/06/19/big-data/搭建SparkHA集群/" title="big-data/搭建SparkHA集群" target="_blank">https:/misakiga.github.io/2021/06/19/big-data/搭建SparkHA集群/</a>
-        </li>
-        
-        <li>
-          <strong>版权声明： </strong>
+        <div class="article-info info-on-right">
           
-          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
-        </li>
-        
-      </ul>
-    </div>
-    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HDFS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">搭建 Spark HA</a>
+        		</li>
+      		
+		</ul>
+	</div>
 
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
+          
 
-    
-
-    
-    
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a> -->
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-     <!-- <img src="//pan.baidu.com/share/qrcode?url=https://misakiga.github.io/2021/06/19/big-data/%E6%90%AD%E5%BB%BASparkHA%E9%9B%86%E7%BE%A4/" alt="微信分享二维码"> -->
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-
-    
-    <div class="clearfix"></div>
-  </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-
-<nav id="article-nav">
-  
-    <a href="/2021/06/19/big-data/%E5%AE%89%E8%A3%85JDK%20Hadoop%20HBase%20Zookeeper/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          big-data/安装JDK Hadoop HBase Zookeeper
-        
-      </div>
-    </a>
   
   
-    <a href="/2021/06/15/big-data/Kafka/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Kafka 分布式订阅消息系统</div>
-      <i class="icon-circle-right"></i>
-    </a>
+    </div></section>
   
-</nav>
 
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-
-
-
-
-
-
+    
 
 
           </div>
@@ -529,9 +308,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: true,
 		toc_hide_index: true,
@@ -894,6 +673,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Spark Streaming</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">搭建 Spark HA</a>
               </li>
             
             <div class="clearfix"></div>
